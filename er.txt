@@ -1,1 +1,64 @@
-aaa
+Members (
+memberID SERIAL
+username
+password
+firstName
+lastName
+email
+type
+interests varchar(500)
+(photo gallery) path
+language preference binary
+bio varchar(2000)
+)
+
+Events (
+eventID SERIAL
+title
+startDate format YYYY-MM-DD
+endDate format YYYY-MM-DD
+startTime HH:MM
+endTime HH:MM
+size
+description varchar(1000)
+site varchar(200)
+)
+
+orders (
+orderID SERIAL
+product ID
+dateTime
+customerID
+)
+
+Products (
+productID SERIAL
+name
+stock
+description varchar(500)
+image varchar(500) path
+)
+
+Blogs (
+blogID
+title
+content
+timeStamp
+
+)
+
+Comments (
+commentID SERIAL
+blogID
+memberID
+contents varchar(1000)
+
+)
+
+
+
+
+
+
+
+
