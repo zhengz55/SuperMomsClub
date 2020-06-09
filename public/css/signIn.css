@@ -11,13 +11,14 @@ body { background-color: #e3b3e3 !important; }
 }
 
 .white-card {
-    position: absolute;
-/*    background-color: rgb(33, 32, 36);*/
+    /*position: absolute;*/
+    position: relative;
 	background-color: #e69ee6;
     border-radius: 50px;
-    height: 600px;
+    height: 300px;
     width: 600px;
-    top: 50%;
+/*    top: 65%; for absolute positioning */
+	top: 13.5%; 
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
@@ -79,10 +80,10 @@ body { background-color: #e3b3e3 !important; }
     border:1px solid rgb(20, 20, 20);
     border-radius: 5px;
     background-color:#23a13e;
-	line-height:30px;
-	margin-bottom:100px;
+	line-height:35px;
+	margin-bottom:70px;
 	display:block;
-	height:10%;
+	height:13%;
 	width:50%;
 	cursor:pointer;
 	margin-top:6%;
@@ -107,6 +108,7 @@ body { background-color: #e3b3e3 !important; }
 .input-container {
     display: block;
     text-align: right;
+
     padding-right: 150px;
     margin-bottom: 10px;
     font-size: 24px;
@@ -129,4 +131,12 @@ body { background-color: #e3b3e3 !important; }
 
 .input-text-box {
     height: 25px;
+}
+
+form {
+	margin-top: 50px;
+}
+
+h3 {
+	text-align: center;
 }

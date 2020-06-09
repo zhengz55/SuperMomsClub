@@ -37,8 +37,14 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Shopping</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Blog</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Blog
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Videos</a>
+          <a class="dropdown-item" href="#">Articles</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Members</a>
@@ -63,13 +69,15 @@
 
 
     <div class="bg">
+      <div style="border: 1px solid black; height: 200px; width: 200px; display: block; margin-right: auto; margin-left: auto; margin-top: 5%; margin-bottom: 12px;"></div>
+      <h3>Super Moms Club</h3>
     <div class="white-card">
-        <div class="logo">Logo
+<!--         <div class="logo">Logo
             <p class="logo-bottom-text">Super Moms Club</p>
-        </div>
+        </div> -->
         <!-- Login input fields and Login button -->
         <form action="" method="post">
-            <div class="input-container">
+            <div class="input-container" style="padding-top: 30px;">
                 <label class="input-name-text" for="username">Username</label>
                 <input class="input-text-box" type="text" placeholder="Username" name="username" required>
             </div>
