@@ -1,0 +1,43 @@
+body {}
+
+
+.bg * {
+    float: left;
+}
+
+.container-main {
+    height: 200%;
+    width: 70%;
+    background-color: yellow;
+}
+
+.container-secondary {
+    width: 30%;
+    height: 200%;
+    background-color: green;
+}
+
+.event {
+    width: 100%;
+    height: 250px;
+    background-color: blue;
+}
+
+.event * {
+    float: left;
+}
+
+h3 {
+    margin-left: 25px;
+}
+
+p {
+    font-size: 18;
+    float: none;
+}
+
+.hl {
+    height: 2px;
+    border-top: 2px solid black;
+    width: 100%;
+}

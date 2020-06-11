@@ -1,0 +1,27 @@
+body {}
+
+
+.container-main {
+    height: 200%;
+    width: 70%;
+    background-color: yellow;
+}
+
+.event {
+    width: 100%;
+    height: 250px;
+    background-color: blue;
+}
+
+.event * {
+    float: left;
+}
+
+h3 {
+    margin-left: 25px;
+}
+
+p {
+    font-size: 18;
+    float: none;
+}

@@ -1,6 +1,24 @@
 body { background-color: #abe7e7 !important; }
 
 
+.container-header {
+
+    height: 200px;
+    width: 90%;
+    margin: 4% 5.5%;
+/*    left: 25%;*/
+    margin-bottom: 12px;
+    background-color: #abe7e7;
+}
+
+.container-header * {
+
+    float: left;
+    margin-right: 50px;
+    height: 100%;
+}
+
+
 .bg { 
     display: inline-block;
     height: 100%; 
