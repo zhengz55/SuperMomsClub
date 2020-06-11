@@ -1,4 +1,4 @@
-body { background-color: #e3b3e3 !important; }
+body { background-color: #abe7e7 !important; }
 
 
 .bg { 
@@ -12,13 +12,16 @@ body { background-color: #e3b3e3 !important; }
 
 .white-card {
     /*position: absolute;*/
+    float: left;
+    margin-right: 80px;
+    margin-bottom: 20px;
     position: relative;
-	background-color: #e69ee6;
+	background-color: #fcfcfc;
     border-radius: 30px;
     height: 400px;
-    width: 600px;
+    width: 550px;
 /*    top: 65%; for absolute positioning */
-	top: 28%; 
+	top: 38%; 
     left: 25%;
     transform: translate(-50%, -50%);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
