@@ -46,6 +46,7 @@ body { background-color: #abe7e7 !important; }
 /*    text-align: center;*/
     opacity: 0.95;
     filter: alpha(opacity=95); /* For IE8 and earlier */
+    word-wrap: break-word;
 }
 
 .main-text {
