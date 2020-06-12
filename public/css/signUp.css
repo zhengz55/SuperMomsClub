@@ -1,4 +1,4 @@
-body { background-color: #e3b3e3 !important; }
+body {background-image: url("../img/profilePic.jpg");}
 
 
 .logo {
@@ -26,16 +26,14 @@ body { background-color: #e3b3e3 !important; }
 }
 
 .white-card {
-    position: absolute;
-    background-color: #e69ee6;
+    background-color: #abe7e7;
     border-radius: 5px;
     height: 600px;
     width: 600px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
     text-align: center;
+    margin: 15px auto;
 }
 
 .logo-text {
@@ -59,16 +57,18 @@ body { background-color: #e3b3e3 !important; }
 .input-name-text {
     color: white;
     font-weight: 300;
+    /* text-align: left; */
 }
 
 .input-text-box {
     height: 25px;
+    /* text-align: right; */
 }
 
 .button {
     border:1px solid rgb(20, 20, 20);
     border-radius: 5px;
-    background-color:#4dff4d;
+    background-color:#31b1e4;
     line-height:30px;
     margin-bottom:100px;
     display:block;

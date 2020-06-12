@@ -14,14 +14,31 @@ body {}
 }
 
 .event * {
-    float: left;
+  /* float: left; */
 }
-
+.container-discription {
+    float: right;
+    position: relative;
+    width: 70%;
+    height: 500px;
+    margin-top: 15px;
+}
 h3 {
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 p {
     font-size: 18;
     float: none;
+    margin-left: 15px;
+    word-wrap: break-word;
+}
+img {
+    margin: 15px 15px; 
+}
+
+.container-image{
+    width: 30%;
+    height: 100%;
+    float: left;
 }
