@@ -6,7 +6,7 @@ https://www.pluralsight.com/guides/getting-started-with-nodejs (some additional 
 https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/
 For table schemas, refer to er.txt
 
-3.Currently no direct link to profile page. After starting server, use url localhost:3002/userProfile to see its contents.
+3. Currently no direct link to profile page. After starting server, use url localhost:3002/userProfile to see its contents.
 
 4. Current TODOs:
 -Refactor redundant css code into a main css file. 
