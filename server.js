@@ -3,7 +3,7 @@ const log = console.log
 
 
 const express = require('express');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -61,7 +61,23 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 
 app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/home.html');
+})
+
+app.get('/activities', (req, res) => {
+  res.sendFile(__dirname + '/public/activities.html');
+})
+
+app.get('/blogs', (req, res) => {
+  res.sendFile(__dirname + '/public/blogs.html');
+})
+
+app.get('/signup', (req, res) => {
   res.sendFile(__dirname + '/public/signUp.html');
+})
+
+app.get('/userProfile', (req, res) => {
+  res.sendFile(__dirname + '/public/profile.html');
 })
 
 app.get('/users', (req, res) => {
@@ -85,7 +101,7 @@ app.post('/users', (req, res) => {
 })
 
 app.post('/userLogin', (req, res) => {
-  
+
 })
 
 

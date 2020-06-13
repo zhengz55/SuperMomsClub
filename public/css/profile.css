@@ -1,5 +1,15 @@
 body { background-color: #abe7e7 !important; }
 
+.signIn-form {
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    top: 55px;
+    display: none;
+    visibility: hidden;
+    border: 1px solid black;
+}
+
 
 .container-header {
 
@@ -98,7 +108,7 @@ body { background-color: #abe7e7 !important; }
     transform: translateX(-50%);
 }
 
-.button {
+/*.button {
     border:1px solid rgb(20, 20, 20);
     border-radius: 5px;
     background-color:#23a13e;
@@ -114,7 +124,27 @@ body { background-color: #abe7e7 !important; }
     position:relative;
     margin-left: auto;
     margin-right: auto;
+}*/
+
+
+.button {
+    border:1px solid rgb(20, 20, 20);
+    border-radius: 5px;
+    background-color:#31b1e4;
+    line-height:30px;
+    margin-bottom:100px;
+    display:block;
+    height:10%;
+    width:50%;
+    cursor:pointer;
+    margin-top:5%;
+    margin-bottom:5%;
+    text-align:center;
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 .button-text {
     font-size:30px;
