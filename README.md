@@ -2,9 +2,11 @@
 
 1. Must install Node to run server. Scripts use ajax to load part of the webpages, so without at least a local server it will not go well! Below is the link to download Node.js 
 <br />
-After setting up the environment, type "node server.js" in terminal while in the local git directory to start the server.
-<br />
 https://nodejs.org/en/download/
+<br />
+After setting up the environment, type "node server.js" in terminal while in the local git directory to start the server.
+
+
 <br />
 https://www.pluralsight.com/guides/getting-started-with-nodejs (some additional help if needed.)
 <br />
