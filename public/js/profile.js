@@ -1,6 +1,6 @@
 const log = console.log
 
-
+log($(".gallery"))
 
 $(document).ready(function(){
 	$('.navslot').load("home.html .navbar") // load navbar from homepage
