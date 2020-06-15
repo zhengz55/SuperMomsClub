@@ -1,0 +1,62 @@
+/*body {background-image: url("../img/profilePic.jpg");}*/
+
+.signIn-form {
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    top: 55px;
+    display: none;
+    visibility: hidden;
+    border: 1px solid black;
+
+}
+
+.input-container-signin {
+	display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    min-width: 400px;
+    min-height: 50px;
+/*    border: 1px solid black;*/
+}
+
+#signin-button {
+	border:1px solid rgb(20, 20, 20);
+    border-radius: 5px;
+    background-color:#31b1e4;
+    line-height:30px;
+    margin-bottom:100px;
+    display:block;
+    height:10%;
+    width:50%;
+    cursor:pointer;
+    margin-top:5%;
+    margin-bottom:5%;
+    text-align:center;
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signUp-form {
+	background-color: white;
+    position: absolute;
+    right: 100px;
+    top: 350px;
+    display: block;
+    visibility: visible;
+    border: 1px solid black;
+}
+
+.input-name-text-signin {
+    color: white;
+    font-weight: 300;
+    /* text-align: left; */
+}
+
+.input-text-box-signin {
+	margin-top: 11px;
+    height: 25px;
+    /* text-align: right; */
+}

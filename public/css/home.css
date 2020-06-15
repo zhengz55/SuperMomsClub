@@ -1,6 +1,6 @@
 body { background-color: #e3b3e3 !important; }
 
-.signIn-form {
+/*.signIn-form {
     background-color: white;
     position: absolute;
     right: 0px;
@@ -9,7 +9,7 @@ body { background-color: #e3b3e3 !important; }
     visibility: hidden;
     border: 1px solid black;
 
-}
+}*/
 
 .button {
     border:1px solid rgb(20, 20, 20);

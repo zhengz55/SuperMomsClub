@@ -13,6 +13,16 @@ function configureLoginForm() {
 			data: $(this).serialize(),
 			success: function(data) {
 				log(data)
+				localStorage.setItem("userID", data.id)
+				localStorage.setItem("email", data.email)
+				localStorage.setItem("username", data.username)
+				localStorage.setItem("bio", data.bio)
+				localStorage.setItem("type", data.type)
+				localStorage.setItem("firstname", data.firstname)
+				localStorage.setItem("lastname", data.lastname)
+				localStorage.setItem("password", data.password)
+				localStorage.setItem("interests", data.interests)
+				log(localStorage.getItem("userID"), localStorage.getItem("username"), localStorage.getItem("firstname"), localStorage.getItem("lastname"), localStorage.getItem("password"))
 			},
 			error: function(data) {
 				if (data.status === 400) {
