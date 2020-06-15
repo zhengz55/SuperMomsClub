@@ -3,9 +3,10 @@ const log = console.log
 
 
 const express = require('express');
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session')
 
 // const cors = require('cors');
 
@@ -101,7 +102,18 @@ app.post('/users', (req, res) => {
 })
 
 app.post('/userLogin', (req, res) => {
-
+  log(req.body.username, req.body.password)
+  pool.query('SELECT * FROM members where username=$1 AND password=$2', [req.body.username, req.body.password], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows[0])
+    } else {
+      res.status(400).send()
+    }
+  })
 })
 
 

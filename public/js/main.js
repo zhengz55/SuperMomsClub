@@ -21,13 +21,11 @@ function configureLoginForm() {
 			}
 		});
 	})
-// }
+}
 
 $(document).ready(function(){
-	$('.navslot').load("home.html .navbar") // load navbar from homepage
-	$('.signInSlot').load("signup.html .signIn-form", configure);
-
-
+	$('.navslot').load("main.html .navbar") // load navbar from homepage
+	$('.signInSlot').load("main.html .signIn-form", configureLoginForm);
 });
 
 function signIn() { // toggle sign in form visibility
