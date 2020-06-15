@@ -116,6 +116,10 @@ app.post('/userLogin', (req, res) => {
   })
 })
 
+app.patch('/userProfile', (req, res) => {
+  log(req.body)
+})
+
 
 
 

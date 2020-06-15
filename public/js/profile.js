@@ -1,37 +1,19 @@
-const log = console.log
 
 log($(".gallery"))
 
-$(document).ready(function(){
-	$('.navslot').load("home.html .navbar") // load navbar from homepage
-	$('.signinSlot').load("signUp.html .signIn-form")
+const spans = document.getElementsByTagName("span")
 
 
-	$(".signIn-form").submit(function(e) { // signin form
-		e.preventDefault();
-		$.ajax({
-			type: "POST",
-			url: '/userLogin',
-			data: $(this).serialize(),
-			success: function() {
-		  		alert(123)
-			},
-		});
+$(document).ready(function() {
+	$('#profile-name').text(myStorage.getItem("firstname") + " " + myStorage.getItem("lastname") + "' Profile")
+	$('#email').text(myStorage.getItem("email"))
+	$('#membership').text(myStorage.getItem("type"))
+	$('#yourbio').text(myStorage.getItem("bio") + myStorage.getItem("password")) // remember to remove this last part
+
+	$('#editButton').click(function() {
+		for (let span of spans) {
+			span.contentEditable = true;
+		}
 	})
 
-
-
-});
-
-function signIn() { // toggle sign in form visibility
-	log('clicked')
-	if ($(".signIn-form").is(":visible")) {
-		$(".signIn-form").css("visibility", "hidden");
-		$(".signIn-form").css("display", "none");
-	}
-	else {
-		$(".signIn-form").css("visibility", "visible");
-		$(".signIn-form").css("display", "block");
-	}
-
-}
+})

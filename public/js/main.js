@@ -22,7 +22,7 @@ function configureLoginForm() {
 				localStorage.setItem("lastname", data.lastname)
 				localStorage.setItem("password", data.password)
 				localStorage.setItem("interests", data.interests)
-				log(localStorage.getItem("userID"), localStorage.getItem("username"), localStorage.getItem("firstname"), localStorage.getItem("lastname"), localStorage.getItem("password"))
+				window.location.href = "userProfile";
 			},
 			error: function(data) {
 				if (data.status === 400) {
