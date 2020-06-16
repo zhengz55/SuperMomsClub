@@ -49,4 +49,19 @@ $(document).ready(function() {
 
 	})
 
+	$('.x').click(function() {
+		$("#activity-form").css("visibility", "hidden");
+		$("#activity-form").css("display", "none");
+	})
+
+	$('#add-activity').click(function() {
+		if ($("#activity-form").is(":visible")) {
+
+		}
+		else {
+			$("#activity-form").css("visibility", "visible");
+			$("#activity-form").css("display", "block");
+		}
+		})
+
 })

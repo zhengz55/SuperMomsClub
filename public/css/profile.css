@@ -235,9 +235,88 @@ td {
 }
 
 
+#activity-form {
+    border: 1px solid black;
+    background-color: #fcfcfc;
+    min-height: 75%;
+    min-width: 50%;
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    top: 30%;
+    left: 25%;
+
+}
+
+.input-container-activity {
+    display: block;
+    margin-top: 25px;
+/*    text-align: center;*/
+}
+
+h4 {
+    padding-top: 20px;
+/*    margin-top: 20px !important;*/
+    text-align: center;
+
+}
+
+.leftbox {
+
+    width: 40%;
+    height: 100%;
+    float: left;
+    margin-left: 5%;
+}
+
+.rightbox {
+
+    width: 40%;
+    height: 100%;
+    float: right;
+    margin-right: 5%;
+}
+
+input {
+    display: inline-block;
+    text-align: left;
+    float: right;
+}
+
+label {
+    display: inline-block;
+}
+
+.submit-button {
+    border:1px solid rgb(20, 20, 20);
+    border-radius: 5px;
+    background-color:#31b1e4;
+    line-height:35px;
+    margin-bottom:100px;
+    display:inline-block;
+    height:10%;
+    width:30%;
+/*    left: 50%;*/
+    cursor:pointer;
+    margin-top:7%;
+    margin-bottom:5%;
+    text-align: center;
+    position: absolute;
+    bottom: 3%;
+    left: 35%;
 
 
 
+}
+
+.x {
+    position: absolute;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    top: 0px;
+    right: 0px;
+}
 
 
 
