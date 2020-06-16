@@ -117,8 +117,18 @@ app.post('/userLogin', (req, res) => {
 })
 
 app.patch('/userProfile', (req, res) => {
-  log(req.body)
+  let curUser = JSON.parse(req.body.user);
+  pool.query('UPDATE members SET email=$1, type=$2, bio=$3, interests=$4 where id=$5', [curUser.email, curUser.type, curUser.bio, curUser.interests, curUser.id], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else {
+      res.status(200).send()
+    }
+  })
+
 })
+
 
 
 
