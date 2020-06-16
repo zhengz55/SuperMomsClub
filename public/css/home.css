@@ -1,4 +1,4 @@
-body { background-color: #e3b3e3 !important; }
+body { background-color: #ffffff !important; }
 
 /*.signIn-form {
     background-color: white;
@@ -34,11 +34,12 @@ body { background-color: #e3b3e3 !important; }
 .image-container-main {
   width: 80%;
   height: 400px;
-  border: 1px solid pink;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
   margin-top: 15px;
   margin-left: 10%;
   text-align: center;
-  background-color: #e69ee6;
+  background-color: #bcf5f2;
 }
 
 #signIn {

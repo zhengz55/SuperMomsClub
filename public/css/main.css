@@ -3,12 +3,13 @@
 .signIn-form {
     background-color: white;
     position: absolute;
-    right: 0px;
-    top: 55px;
-    display: none;
-    visibility: hidden;
-    border: 1px solid black;
-
+    right: 5px;
+    top: 60px;
+    display: black;
+    visibility: visible;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .input-container-signin {
@@ -18,13 +19,14 @@
     font-size: 18px;
     min-width: 400px;
     min-height: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 /*    border: 1px solid black;*/
 }
 
 #signin-button {
-	border:1px solid rgb(20, 20, 20);
+	border:0px solid rgb(20, 20, 20);
     border-radius: 5px;
-    background-color:#31b1e4;
+    background-color:#78d7fd;
     line-height:30px;
     margin-bottom:100px;
     display:block;
@@ -37,6 +39,7 @@
     position:relative;
     margin-left: auto;
     margin-right: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .signUp-form {
@@ -56,7 +59,9 @@
 }
 
 .input-text-box-signin {
-	margin-top: 11px;
+	margin-top: 30px;
     height: 25px;
+    border-radius: 5px;
+    border:0.4px solid rgb(20, 20, 20);
     /* text-align: right; */
 }
