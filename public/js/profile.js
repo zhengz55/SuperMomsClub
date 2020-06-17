@@ -62,6 +62,30 @@ $(document).ready(function() {
 			$("#activity-form").css("visibility", "visible");
 			$("#activity-form").css("display", "block");
 		}
+	})
+
+	$('.submit-button').click(function() {
+		let event = {
+			title: $('#event-title').val(),
+			start_date: $('#start-date').val(),
+			end_date: $('#end-date').val(),
+			start_time: $('#start-time').val(),
+			end_time: $('#end-time').val(),
+			description: $('#event-description').val(),
+			headcount: $('#event-headcount').val(),
+			site: $('#event-site').val(),
+			member_id: localStorage.getItem("userID")
+		}
+		log(event)
+		$.ajax({
+			type: "POST",
+			url: '/activities',
+			data: {event: JSON.stringify(event)},
+			success: function() {
+				log("success")
+				$(this).closest('form').find("input[type=text], textarea").val("");
+			}
 		})
+	})
 
 })

@@ -86,6 +86,20 @@ app.get('/users', (req, res) => {
   res.status(200).send()
 })
 
+app.get('/events', (req, res) => {
+  pool.query('SELECT * FROM events', (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows)
+    } else {
+      res.status(400).send()
+    }
+  })
+})
+
 
 app.post('/users', (req, res) => {
   log("request received!")
@@ -129,7 +143,18 @@ app.patch('/userProfile', (req, res) => {
 
 })
 
-
+app.post('/activities', (req, res) => {
+  let event = JSON.parse(req.body.event);
+  log(event.title, event.start_date, event.end_date, event.start_time, event.end_time, event.headcount, event.description, event.site, event.member_id)
+  pool.query('INSERT INTO events(title, start_date, end_date, start_time, end_time, headcount, description, site, member_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)', [event.title, event.start_date, event.end_date, event.start_time, event.end_time, event.headcount, event.description, event.site, event.member_id], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else {
+      res.status(200).send()
+    }
+  })
+})
 
 
 

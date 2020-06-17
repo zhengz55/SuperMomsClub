@@ -12,17 +12,18 @@ language preference binary
 bio varchar(2000)
 )
 
-Events (
-eventID SERIAL
-title
-startDate format YYYY-MM-DD
-endDate format YYYY-MM-DD
-startTime HH:MM
-endTime HH:MM
-size
-description varchar(1000)
-site varchar(200)
-)
+CREATE TABLE events (
+ID SERIAL PRIMARY KEY,
+title VARCHAR(100),
+start_date VARCHAR(50),
+end_date VARCHAR(50),
+start_time VARCHAR(20),
+end_time VARCHAR(20),
+headcount VARCHAR(10),
+description VARCHAR(2000),
+site VARCHAR(400),
+member_id integer references members(id)
+);
 
 orders (
 orderID SERIAL
