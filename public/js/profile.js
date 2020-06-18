@@ -50,8 +50,10 @@ $(document).ready(function() {
 	})
 
 	$('.x').click(function() {
-		$("#activity-form").css("visibility", "hidden");
-		$("#activity-form").css("display", "none");
+		$(this).parent().css("visibility", "hidden");
+		$(this).parent().css("display", "none");
+		// $("#activity-form").css("visibility", "hidden");
+		// $("#activity-form").css("display", "none");
 	})
 
 	$('#add-activity').click(function() {
@@ -64,7 +66,40 @@ $(document).ready(function() {
 		}
 	})
 
-	$('.submit-button').click(function() {
+	$('#add-product').click(function() {
+		if ($("#product-form").is(":visible")) {
+
+		}
+		else {
+			$("#product-form").css("visibility", "visible");
+			$("#product-form").css("display", "block");
+		}
+	})
+
+	$('#product-submit').click(function() {
+		let product = {
+			name: $('#product-name').val(),
+			stock: $('#product-stock').val(),
+			description: $('#product-description').val(),
+			price: $('#product-price').val(),
+			photo: "img/" + $('#product-image').val()
+		}
+		log(product)
+		$.ajax({
+			type: "POST",
+			url: '/products',
+			data: {product: JSON.stringify(product)},
+			success: function() {
+				log("success")
+				$(this).closest('form').find("input[type=text], textarea").val("");
+				$("#product-form").css("visibility", "hidden");
+				$("#product-form").css("display", "none");
+			}
+		})
+	})
+
+
+	$('#activity-submit').click(function() {
 		let event = {
 			title: $('#event-title').val(),
 			start_date: $('#start-date').val(),
@@ -74,7 +109,8 @@ $(document).ready(function() {
 			description: $('#event-description').val(),
 			headcount: $('#event-headcount').val(),
 			site: $('#event-site').val(),
-			member_id: localStorage.getItem("userID")
+			member_id: localStorage.getItem("userID"),
+			photo: "img/" + $('#photo').val()
 		}
 		log(event)
 		$.ajax({
@@ -84,6 +120,8 @@ $(document).ready(function() {
 			success: function() {
 				log("success")
 				$(this).closest('form').find("input[type=text], textarea").val("");
+				$("#activity-form").css("visibility", "hidden");
+				$("#activity-form").css("display", "none");
 			}
 		})
 	})

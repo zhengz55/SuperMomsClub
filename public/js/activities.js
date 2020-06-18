@@ -32,6 +32,7 @@ $(document).ready(function(){
 		url: '/events',
 		success: function(data) {
 			log(data)
+			for (let i = 1; i < 5; i++) {
 			for (let event of data) {
 				let e = document.createElement("div")
 				e.setAttribute("class", "event")
@@ -46,7 +47,8 @@ $(document).ready(function(){
 				img.setAttribute("height", "150px")
 				// img.width = "90%";
 				// img.height = "150px";
-				img.src = "img/profilePic.jpg";
+				// img.src = "img/profilePic.jpg";
+				img.src = event.photo;
 
 				let p1 = document.createElement("p")
 				p1.innerHTML = event.site + ", " + event.member_id;
@@ -79,6 +81,7 @@ $(document).ready(function(){
 
 				$('.container-main').append(e)
 
+			}
 			}
 		},
 		error: function(data) {

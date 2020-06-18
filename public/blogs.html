@@ -37,10 +37,16 @@
 
       </div>
 
-      <div class="container-secondary">Container 2
+      <div class="container-secondary"><p style="margin: 15px 15px;">Post a blog</p>
         <div class="hl"></div>
-        <textarea rows=8 cols=45 placeholder="here be stuff" style="margin: 15px 15px 15px 15px; border-radius: 2%;"></textarea>
-        <button class="submit-button" type="button">Button</button>
+        <label style="margin-left: 25px;">Title: </label>
+        <input id="blog-header" type="text" placeholder="Title" required>
+        <div class="blog-container">
+          <textarea rows=8 cols=45 placeholder="here be stuff" style="margin-top: 15px; border-radius: 2%;" id="blog-content"></textarea>
+          <br><br>
+          <input type="text" id="photo-src" placeholder="Photo(optional)">
+          <button class="submit-button" id="post-blog" type="button">Post</button>
+        </div>
       </div>
 
 
@@ -57,7 +63,7 @@
 
 
   <script type="text/javascript" src="js/main.js"></script>
-<!--   <script src="js/blogs.js" type="text/javascript"></script> -->
+  <script src="js/blogs.js" type="text/javascript"></script>
 
 
 </body>

@@ -2,6 +2,8 @@ const log = console.log
 
 const myStorage = window.localStorage
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 
 function configureLoginForm() {
 	$(".signIn-form").submit(function(e) { // signin form
@@ -36,6 +38,10 @@ function configureLoginForm() {
 $(document).ready(function(){
 	$('.navslot').load("main.html .navbar") // load navbar from homepage
 	$('.signInSlot').load("main.html .signIn-form", configureLoginForm);
+
+	// write here
+	// 1. + button.
+	// 2. interactions: clicking the add-button will generate the product inside the cart.
 });
 
 function signIn() { // toggle sign in form visibility

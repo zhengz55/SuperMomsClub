@@ -60,9 +60,35 @@
       <p class="content-text">Bio: <span id="yourbio">john123@123.cajohn123@123.cajohn123@123.cajohn123@123.cajohn123@123.ca</span></p>
       <p class="content-text" id="kidsbio">Kids Bio: <span>Premium (tier 4)john123@123.cajohn123@123.cajohn123@123.cajohn123@123.ca</span></p>
       <input class="button" type="button" value="Post an Activity" id="add-activity" style="width: 25%; line-height: 5px; margin-right: 45px;">
+      <input class="button" type="button" value="Add product" id="add-product" style="width: 25%; line-height: 5px; margin-right: 45px;">
 
     </div>
     </div>
+
+    <form id="product-form">
+      <h4>Product</h4>
+      <br><br>
+      <button class="x" type="button">X</button>
+      <div class="centerbox">
+          <label for="name">Name</label>
+          <input type="text" placeholder="Product name" id="product-name">
+          <br><br>
+          <label for="image">Image</label>
+          <input type="text" placeholder="Product image" id="product-image">
+          <br><br>
+          <label for="description">Description</label>
+          <textarea rows=2 cols=30 id="product-description"></textarea>
+          <br><br>
+          <label for="stock">Stock</label>
+          <input type="number" placeholder="Stock" id="product-stock">
+          <br><br>
+          <label for="start">Price</label>
+          <input type="number" placeholder="Price" id="product-price">
+          <br><br>
+           <input class="submit-button" id="product-submit" type="button" value="Add Product to Stock">
+      </div>
+
+    </form>
 
     <form id="activity-form">
       <h4>Activity</h4>
@@ -98,10 +124,14 @@
         <br><br>
         <label>Event Location: </label>
         <input type="text" placeholder="Site" id="event-site">
+        <br><br>
+        <label>Photo: </label>
+        <input id="photo" type="text" placeholder="Photo Src">
       </div>
 
 
-        <input class="submit-button" type="button" value="Add Event">
+        <input class="submit-button" id="activity-submit" type="button" value="Add Event">
+
 
 
     </form>
