@@ -83,3 +83,22 @@ p {
 textarea {
     left: 15px;
 }
+
+.event * {
+     float: left;
+}
+
+.container-description{
+max-width: 65%;
+height: 100%;
+}
+
+.container-description * {
+    float: none;
+    margin-left: 35px;
+}
+
+img{
+    margin-top: 15px;
+    margin-left: 15px;
+}
