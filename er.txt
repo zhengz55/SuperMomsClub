@@ -22,7 +22,8 @@ end_time VARCHAR(20),
 headcount VARCHAR(10),
 description VARCHAR(2000),
 site VARCHAR(400),
-member_id integer references members(id)
+member_id integer references members(id),
+photo VARCHAR(400)
 );
 
 orders (
@@ -32,13 +33,24 @@ dateTime
 customerID
 )
 
-Products (
-productID SERIAL
-name
-stock
-description varchar(500)
-image varchar(500) path
-)
+CREATE TABLE products (
+ID SERIAL PRIMARY KEY,
+name VARCHAR(100),
+stock integer,
+description VARCHAR(500),
+image VARCHAR(100),
+price integer,
+purchases integer
+);
+
+CREATE TABLE blogs (
+ID SERIAL PRIMARY KEY,
+title VARCHAR(100),
+content VARCHAR(20000),
+photo VARCHAR(400),
+ts TIMESTAMP,
+member_id integer references members(id)
+);
 
 Blogs (
 blogID

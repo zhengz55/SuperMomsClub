@@ -1,0 +1,67 @@
+/*body {background-image: url("../img/profilePic.jpg");}*/
+
+.signIn-form {
+    background-color: white;
+    position: absolute;
+    right: 5px;
+    top: 60px;
+    display: block;
+    visibility: hidden;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input-container-signin {
+	display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    min-width: 400px;
+    min-height: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/*    border: 1px solid black;*/
+}
+
+#signin-button {
+	border:0px solid rgb(20, 20, 20);
+    border-radius: 5px;
+    background-color:#78d7fd;
+    line-height:30px;
+    margin-bottom:100px;
+    display:block;
+    height:10%;
+    width:50%;
+    cursor:pointer;
+    margin-top:5%;
+    margin-bottom:5%;
+    text-align:center;
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.signUp-form {
+	background-color: white;
+    position: absolute;
+    right: 100px;
+    top: 350px;
+    display: block;
+    visibility: visible;
+    border: 1px solid black;
+}
+
+.input-name-text-signin {
+    color: white;
+    font-weight: 300;
+    /* text-align: left; */
+}
+
+.input-text-box-signin {
+	margin-top: 30px;
+    height: 25px;
+    border-radius: 5px;
+    border:0.4px solid rgb(20, 20, 20);
+    /* text-align: right; */
+}

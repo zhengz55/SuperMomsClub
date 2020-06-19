@@ -40,8 +40,7 @@ $(document).ready(function(){
 	$('.signInSlot').load("main.html .signIn-form", configureLoginForm);
 
 	// write here
-	// 1. + button.
-	// 2. interactions: clicking the add-button will generate the product inside the cart.
+
 });
 
 function signIn() { // toggle sign in form visibility
