@@ -15,6 +15,7 @@ function configureLoginForm() {
 			data: $(this).serialize(),
 			success: function(data) {
 				log(data)
+				let arr = []
 				localStorage.setItem("userID", data.id)
 				localStorage.setItem("email", data.email)
 				localStorage.setItem("username", data.username)
@@ -24,6 +25,7 @@ function configureLoginForm() {
 				localStorage.setItem("lastname", data.lastname)
 				localStorage.setItem("password", data.password)
 				localStorage.setItem("interests", data.interests)
+				localStorage.setItem("purchases", JSON.stringify(arr))
 				window.location.href = "userProfile";
 			},
 			error: function(data) {
