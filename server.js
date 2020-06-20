@@ -86,6 +86,10 @@ app.get('/userProfile', (req, res) => {
   res.sendFile(__dirname + '/public/profile.html');
 })
 
+app.get('/workshops', (req, res) => {
+  res.sendFile(__dirname + '/public/workshop.html');
+})
+
 app.get('/users', (req, res) => {
   log("request received!")
   res.status(200).send()

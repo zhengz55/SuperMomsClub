@@ -1,0 +1,33 @@
+.column{
+    min-height: 100%;
+    width: 50%;
+    float: left;
+}
+
+.left{
+    background-color: yellow;
+}
+
+.right{
+    background-color: yellowgreen;
+}
+
+.workshop{
+    width: 80%;
+    margin-left: 10%;
+    height: 350px;
+    border: 1px solid black;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.workshop-image{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.workshop p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20;
+}
