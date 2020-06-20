@@ -1,6 +1,6 @@
 body { background-color: #abe7e7 !important; }
 
-.signIn-form {
+/*.signIn-form {
     background-color: white;
     position: absolute;
     right: 0px;
@@ -8,7 +8,7 @@ body { background-color: #abe7e7 !important; }
     display: none;
     visibility: hidden;
     border: 1px solid black;
-}
+}*/
 
 #editButton {
     position: absolute;
@@ -234,8 +234,15 @@ td {
     border: 1px solid black;
 }
 
+h4 {
+    padding-top: 20px;
+/*    margin-top: 20px !important;*/
+    text-align: center;
 
-form {
+}
+
+
+#product-form, #activity-form {
     border: 1px solid black;
     background-color: #fcfcfc;
     min-height: 75%;
@@ -254,12 +261,7 @@ form {
 /*    text-align: center;*/
 }
 
-h4 {
-    padding-top: 20px;
-/*    margin-top: 20px !important;*/
-    text-align: center;
 
-}
 
 .centerbox {
 
