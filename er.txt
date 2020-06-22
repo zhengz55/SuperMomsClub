@@ -52,13 +52,19 @@ ts TIMESTAMP,
 member_id integer references members(id)
 );
 
-Blogs (
-blogID
-title
-content
-timeStamp
-
-)
+CREATE TABLE workshops (
+ID SERIAL PRIMARY KEY,
+name VARCHAR(200),
+image VARCHAR(100),
+description VARCHAR(4000),
+link VARCHAR(200),
+objective VARCHAR(500),
+signup_start VARCHAR(200),
+signup_end VARCHAR(200),
+site VARCHAR(200),
+capacity integer,
+member_id integer references members(id)
+);
 
 Comments (
 commentID SERIAL

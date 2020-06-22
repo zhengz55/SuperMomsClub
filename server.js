@@ -95,6 +95,10 @@ app.get('/users', (req, res) => {
   res.status(200).send()
 })
 
+app.get('/member', (req, res) => {
+  res.sendFile(__dirname + '/public/member.html');
+})
+
 app.get('/events', (req, res) => {
   pool.query('SELECT * FROM events', (err, resp) => {
     if (err) {
@@ -125,6 +129,20 @@ app.get('/fetchAllProducts', (req, res) => {
 
 app.get('/fetchBlogs', (req, res) => {
   pool.query('SELECT * FROM blogs', (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows)
+    } else {
+      res.status(400).send()
+    }
+  })
+})
+
+app.get('/fetchWorkshops', (req, res) => { // not tested yet
+  pool.query('SELECT * FROM workshops', (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
@@ -209,6 +227,18 @@ app.post('/blogs', (req, res) => {
   log(blog)
   let timestamp = new Date();
   pool.query('INSERT INTO blogs(title, content, photo, ts, member_id) VALUES($1, $2, $3, $4, $5)', [blog.title, blog.content, blog.photo, timestamp, blog.member_id], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else {
+      res.status(200).send()
+    }
+  })
+})
+
+app.post('/workshops', (req, res) => {
+  let workshop = JSON.parse(req.body.workshop);
+  pool.query('INSERT INTO workshops(name, image, description, link, objective, signup_start, signup_end, site, capacity, member_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', [workshop.name, workshop.image, workshop.description, workshop.link, workshop.objective, workshop.signup_start, workshop.signup_end, workshop.site, workshop.capacity, workshop.member_id], (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
