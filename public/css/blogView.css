@@ -12,7 +12,7 @@
 .container-images {
     width: 80%;
     height: 300px;
-    border: 1px solid black;
+/*    border: 1px solid black;*/
     margin: 20px auto;
 
 }
@@ -20,9 +20,10 @@
 .container-text {
     width: 80%;
     height: 300px;
-    border: 1px solid black;
+/*    border: 1px solid black;*/
     margin: 20px auto;
     overflow-y: scroll;
+    text-align: initial;
 
 }
 

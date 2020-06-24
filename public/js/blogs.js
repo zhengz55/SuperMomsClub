@@ -27,13 +27,14 @@ $(document).ready(function(){
 		success: function(data) {
 
 	  		for (let blog of data) {
+	  			let photos = blog.photo.split(',')
 	  			let b = document.createElement("div");
 	  			b.setAttribute("class", "event");
 
 	  			let img = document.createElement("img");
 	  			img.style.width = "20%";
 	  			img.style.height = "70%";
-	  			img.src = blog.photo
+	  			img.src = photos[0]
 
 	  			let d = document.createElement("div");
 	  			d.setAttribute("class", "container-description")
@@ -65,6 +66,11 @@ $(document).ready(function(){
 
 	  			$('.container-main').append(b);
 
+	  			h3.onclick = function() {
+	  				localStorage.setItem("blogView", blog.id)
+	  				window.location.href = "blogView"
+	  			}
+
 	  		}
 		},
 	});
@@ -72,12 +78,27 @@ $(document).ready(function(){
 
 
 	$("#post-blog").click(function() {
+		let photos = []
+		if ($('#photo-src').val()) {
+			photos.push('img/' + $('#photo-src').val())
+		}
+		if ($('#photo-src-2').val()) {
+			photos.push('img/' + $('#photo-src-2').val())
+		}
+		log(photos)
+		log()
 		let blog = {
 			title: $('#blog-header').val(),
 			content: $('#blog-content').val(),
-			photo: 'img/' + $('#photo-src').val(),
+			photo: photos,
 			member_id: localStorage.getItem("userID")
 		}
+		// let text = $('#blog-content').val().replace("\r\n", "<br />\r\n") .replace("\r\n", "<br />\r\n")
+		// text = JSON.stringify(text)
+		// log(text)
+		// text = JSON.parse(text)
+		// log(text)
+
 		$.ajax({
 			type: "POST",
 			url: '/blogs',

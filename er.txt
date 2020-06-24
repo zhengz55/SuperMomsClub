@@ -49,6 +49,7 @@ title VARCHAR(100),
 content VARCHAR(20000),
 photo VARCHAR(400),
 ts TIMESTAMP,
+link VARCHAR(400),
 member_id integer references members(id)
 );
 
