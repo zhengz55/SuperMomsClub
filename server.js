@@ -90,13 +90,27 @@ app.get('/workshops', (req, res) => {
   res.sendFile(__dirname + '/public/workshop.html');
 })
 
-app.get('/users', (req, res) => {
-  log("request received!")
-  res.status(200).send()
-})
+// app.get('/users', (req, res) => {
+//   log("request received!")
+//   res.status(200).send()
+// })
 
 app.get('/member', (req, res) => {
   res.sendFile(__dirname + '/public/member.html');
+})
+
+app.get('/event/:member_id', (req, res) => {
+  pool.query('SELECT * FROM events where member_id=$1', [req.params.member_id], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows)
+    } else {
+      res.status(400).send()
+    }
+  })
 })
 
 app.get('/events', (req, res) => {
@@ -112,6 +126,8 @@ app.get('/events', (req, res) => {
     }
   })
 })
+
+
 
 app.get('/fetchAllProducts', (req, res) => {
   pool.query('SELECT * FROM products', (err, resp) => {

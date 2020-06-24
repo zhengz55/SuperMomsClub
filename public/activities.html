@@ -18,9 +18,15 @@
 <body>
   <div class="navslot"></div>
   <div class="signInSlot"></div>
+  <div class="secondary-navslot"></div>
 
 
     <div class="bg">
+
+
+
+
+
       <div class="container-main">
         <div class="event">
           <div class="container-image">  
@@ -68,6 +74,52 @@
 
 
       </div>
+
+            <form id="activity-form">
+      <h4>Activity</h4>
+      <br><br>
+      <button class="x" type="button">X</button>
+      <div class="leftbox">
+
+          <label for="title">Title</label>
+          <input type="text" placeholder="Activity Title" id="event-title">
+          <br><br>
+          <label for="start">Start Date</label>
+          <input type="date" id="start-date">
+          <br><br>
+          <label for="end">End Date</label>
+          <input type="date" id="end-date">
+          <br><br>
+          <label for="timestart">Start hour</label>
+          <input type="time" id="start-time">
+          <br><br>
+          <label for="timeend">End hour</label>
+          <input type="time" id="end-time">
+
+
+
+      </div>
+
+      <div class="rightbox">
+        <label>Description: </label>
+        <textarea id="event-description" rows=5 cols=25></textarea>
+        <br><br>
+        <label>Size of Event: </label>
+        <input type="number" placeholder="Headcount" id="event-headcount">
+        <br><br>
+        <label>Event Location: </label>
+        <input type="text" placeholder="Site" id="event-site">
+        <br><br>
+        <label>Photo: </label>
+        <input id="photo" type="text" placeholder="Photo Src">
+      </div>
+
+
+        <input class="submit-button" id="activity-submit" type="button" value="Add Event">
+
+
+
+    </form>
 
     </div>
 

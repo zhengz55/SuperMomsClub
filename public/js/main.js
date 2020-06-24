@@ -38,7 +38,7 @@ function configureLoginForm() {
 }
 
 $(document).ready(function(){
-	$('.navslot').load("main.html .navbar") // load navbar from homepage
+	$('.navslot').load("main.html #main-navbar") // load navbar from homepage
 	$('.signInSlot').load("main.html .signIn-form", configureLoginForm);
 
 	// write here

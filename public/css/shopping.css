@@ -63,8 +63,8 @@ body { background-color: #bcf5f2 !important; }
 .x {
     position: absolute;
     border-radius: 50%;
-    background: black;
-    color: red;
+    background: green;
+    color: black;
 
 }
 
