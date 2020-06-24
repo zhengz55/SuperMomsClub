@@ -44,13 +44,14 @@ body {height: 100%}
 }
 */
 .container-main {
-    height: 200%;
+    height: 80%;
     width: 70%;
     background-color: yellow;
+    overflow-y: scroll;
 }
 
 .container-secondary {
-    width: 100%;
+    width: 70%;
     height: 500px;
     background-color:#31b1e4;
 
@@ -101,6 +102,12 @@ textarea {
 .container-description{
     max-width: 65%;
     height: 100%;
+}
+
+#post-blog {
+    width: 200px;
+    margin-left: 75px;
+    margin-top: 20px;
 }
 
 .container-description * {

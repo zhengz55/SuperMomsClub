@@ -1,0 +1,48 @@
+.white-card {
+    background-color: #abe7e7;
+    border-radius: 5px;
+    height: 900px;
+    width: 80%;
+    /* transform: translate(-50%, -50%); */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+    text-align: center;
+    margin: 15px auto;
+}
+
+.container-images {
+    width: 80%;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+
+}
+
+.container-text {
+    width: 80%;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+    overflow-y: scroll;
+
+}
+
+.container-images img {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.container-comment {
+    margin-left: 10%;
+    text-align: initial;
+}
+
+.post-button {
+    width: 140px;
+    background-color: #a1f7e5;
+}
+
+h2 {
+    margin-left: 10%;
+    text-align: left;
+    text-decoration-line: underline;
+}
