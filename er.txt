@@ -67,13 +67,14 @@ capacity integer,
 member_id integer references members(id)
 );
 
-Comments (
-commentID SERIAL
-blogID
-memberID
-contents varchar(1000)
+CREATE TABLE comments (
+member_ID integer references members(id),
+content VARCHAR(2000),
+blog_ID integer references blogs(id),
+ts TIMESTAMP
+);
 
-)
+
 
 
 

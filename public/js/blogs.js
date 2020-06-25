@@ -1,10 +1,107 @@
 
+function createBlogs(data) {
+	$('.container-main').empty()
+	for (let blog of data) {
+		let photos = blog.photo.split(',')
+		let b = document.createElement("div");
+		b.setAttribute("class", "event");
 
+		let img = document.createElement("img");
+		img.style.width = "20%";
+		img.style.height = "70%";
+		img.src = photos[0]
+
+		let d = document.createElement("div");
+		d.setAttribute("class", "container-description")
+		let h3 = document.createElement("h3")
+		h3.innerHTML = blog.title
+
+		let p1 = document.createElement("p")
+		let ts = blog.ts
+		let a = document.createElement("a")
+		a.style.marginLeft = "0px";
+		a.href = "#"
+		a.innerHTML = months[parseInt(ts.split("-")[1]) - 1] + " " + ts.split("-")[2].split("T")[0] + ", " + ts.split("T")[1].split(":")[0] + ":" + ts.split("T")[1].split(":")[1]
+		
+		p1.innerHTML = "Posted on: "
+		p1.appendChild(a)
+
+		let p2 = document.createElement("p")
+		p2.innerHTML = "foo";
+		let p3 = document.createElement("p")
+		p3.innerHTML = blog.content;
+
+		d.appendChild(h3)
+		d.appendChild(p1);
+		d.appendChild(p2)
+		d.appendChild(p3)
+
+		b.appendChild(img)
+		b.appendChild(d)
+
+		$('.container-main').append(b);
+
+		h3.onclick = function() {
+			localStorage.setItem("blogView", blog.id)
+			window.location.href = "blogView"
+		}
+
+	}
+}
+
+function loadBlogs(e) {
+
+	let req_url = e.target.innerHTML === "All Blogs" ? '/fetchBlogs' : '/blogs/' + localStorage.getItem("userID")
+
+	$.ajax({
+		type: "GET",
+		url: req_url,
+		success: function(data) {
+			log(data)
+			createBlogs(data)
+		},
+		error: function(data) {
+			if (data.status === 400) {
+				alert("something went wrong")
+			}
+		}
+	});
+
+
+}
 
 
 $(document).ready(function(){
 	// $('.navslot').load("home.html .navbar") // load navbar from homepage
 	// $('.signInSlot').load("signup.html .signIn-form");
+	$('.secondary-navslot').load("main.html #secondary-navbar", function() {
+		let nav = document.querySelector("#secondary-navbar")
+		$('#secondary-navbar').empty()
+		let all = document.createElement("a")
+		all.setAttribute("id", "all-activities")
+		all.innerHTML = "All Blogs"
+		all.href = "#"
+
+
+
+		nav.appendChild(all)
+		if (localStorage.getItem("type") === "Tier 3" || localStorage.getItem("type") === "Tier 4") {
+			let myBlogs = document.createElement("a")
+			myBlogs.setAttribute("id", "all-activities")
+			myBlogs.innerHTML = "My posts"
+			myBlogs.href = "#"
+			nav.appendChild(myBlogs)
+		}
+
+		let secondaryElements = nav.querySelectorAll("a")
+		for (item of secondaryElements) {
+			item.onclick = loadBlogs
+		}
+
+
+
+
+	})
 
 
 
