@@ -94,6 +94,10 @@ app.get('/blogView', (req, res) => {
   res.sendFile(__dirname + '/public/blogView.html');
 })
 
+app.get('/cart', (req, res) => {
+  res.sendFile(__dirname + '/public/cart.html');
+})
+
 // app.get('/users', (req, res) => {
 //   log("request received!")
 //   res.status(200).send()
@@ -132,7 +136,9 @@ app.get('/blogs/:member_id', (req, res) => { // still dangerous
 })
 
 app.get('/blog/:id', (req, res) => {
-  pool.query('SELECT * FROM blogs where id=$1', [req.params.id], (err, resp) => {
+  log(req.params.id)
+  pool.query('SELECT * FROM blogs where blogid=$1', [req.params.id], (err, resp) => {
+    log(resp.rows)
     if (err) {
       res.status(500).send(err)
     }
@@ -175,8 +181,22 @@ app.get('/fetchAllProducts', (req, res) => {
   })
 })
 
+// app.get('/fetchBlogs', (req, res) => {
+//   pool.query('SELECT * FROM blogs', (err, resp) => {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//     else if (resp.rows[0]) {
+//       log(resp.rows[0])
+//       res.status(200).send(resp.rows)
+//     } else {
+//       res.status(400).send()
+//     }
+//   })
+// })
+
 app.get('/fetchBlogs', (req, res) => {
-  pool.query('SELECT * FROM blogs', (err, resp) => {
+  pool.query('SELECT * FROM blogs LEFT OUTER JOIN members ON blogs.member_id = members.id', (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
@@ -188,6 +208,7 @@ app.get('/fetchBlogs', (req, res) => {
     }
   })
 })
+
 
 app.get('/fetchWorkshops', (req, res) => { // not tested yet
   pool.query('SELECT * FROM workshops', (err, resp) => {

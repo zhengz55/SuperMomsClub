@@ -9,7 +9,11 @@ function createBlogs(data) {
 		let img = document.createElement("img");
 		img.style.width = "20%";
 		img.style.height = "70%";
-		img.src = photos[0]
+  		try {
+			img.src = photos[0]
+		} catch(err) {
+			alert("Image not Found")
+		}
 
 		let d = document.createElement("div");
 		d.setAttribute("class", "container-description")
@@ -25,9 +29,8 @@ function createBlogs(data) {
 		
 		p1.innerHTML = "Posted on: "
 		p1.appendChild(a)
-
 		let p2 = document.createElement("p")
-		p2.innerHTML = "foo";
+		p2.innerHTML = blog.username;
 		let p3 = document.createElement("p")
 		p3.innerHTML = blog.content;
 
@@ -42,7 +45,7 @@ function createBlogs(data) {
 		$('.container-main').append(b);
 
 		h3.onclick = function() {
-			localStorage.setItem("blogView", blog.id)
+			localStorage.setItem("blogView", blog.blogid)
 			window.location.href = "blogView"
 		}
 
@@ -98,6 +101,19 @@ $(document).ready(function(){
 			item.onclick = loadBlogs
 		}
 
+		// $.ajax({
+		// 	type: "GET",
+		// 	url: '/leftjoin',
+		// 	success: function(data) {
+		// 		log(data)
+		// 	},
+		// 	error: function(data) {
+		// 		if (data.status === 400) {
+		// 			alert("something went wrong")
+		// 		}
+		// 	}
+		// });
+
 
 
 
@@ -105,17 +121,6 @@ $(document).ready(function(){
 
 
 
-	// $(".signIn-form").submit(function(e) { // signin form
-	// 	e.preventDefault();
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: '/userLogin',
-	// 		data: $(this).serialize(),
-	// 		success: function() {
-	// 	  		alert(123)
-	// 		},
-	// 	});
-	// })
 	log(months)
 
 	$.ajax({
@@ -124,6 +129,7 @@ $(document).ready(function(){
 		success: function(data) {
 
 	  		for (let blog of data) {
+	  			log(blog)
 	  			let photos = blog.photo.split(',')
 	  			let b = document.createElement("div");
 	  			b.setAttribute("class", "event");
@@ -131,7 +137,12 @@ $(document).ready(function(){
 	  			let img = document.createElement("img");
 	  			img.style.width = "20%";
 	  			img.style.height = "70%";
-	  			img.src = photos[0]
+	  			try {
+	  				img.src = photos[0]
+	  			} catch(err) {
+	  				alert("Image not Found")
+	  			}
+	  			
 
 	  			let d = document.createElement("div");
 	  			d.setAttribute("class", "container-description")
@@ -149,7 +160,7 @@ $(document).ready(function(){
 	  			p1.appendChild(a)
 
 	  			let p2 = document.createElement("p")
-	  			p2.innerHTML = "foo";
+	  			p2.innerHTML = blog.username;
 	  			let p3 = document.createElement("p")
 	  			p3.innerHTML = blog.content;
 
@@ -164,7 +175,7 @@ $(document).ready(function(){
 	  			$('.container-main').append(b);
 
 	  			h3.onclick = function() {
-	  				localStorage.setItem("blogView", blog.id)
+	  				localStorage.setItem("blogView", blog.blogid)
 	  				window.location.href = "blogView"
 	  			}
 
@@ -190,11 +201,7 @@ $(document).ready(function(){
 			photo: photos,
 			member_id: localStorage.getItem("userID")
 		}
-		// let text = $('#blog-content').val().replace("\r\n", "<br />\r\n") .replace("\r\n", "<br />\r\n")
-		// text = JSON.stringify(text)
-		// log(text)
-		// text = JSON.parse(text)
-		// log(text)
+
 
 		$.ajax({
 			type: "POST",

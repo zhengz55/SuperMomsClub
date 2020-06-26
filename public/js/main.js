@@ -43,6 +43,7 @@ $(document).ready(function(){
 
 	// write here
 
+
 });
 
 function signIn() { // toggle sign in form visibility

@@ -44,7 +44,7 @@ purchases integer
 );
 
 CREATE TABLE blogs (
-ID SERIAL PRIMARY KEY,
+blogID SERIAL PRIMARY KEY,
 title VARCHAR(100),
 content VARCHAR(20000),
 photo VARCHAR(400),
