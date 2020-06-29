@@ -94,6 +94,10 @@ app.get('/blogView', (req, res) => {
   res.sendFile(__dirname + '/public/blogView.html');
 })
 
+app.get('/contact', (req, res) => {
+  res.sendFile(__dirname + '/public/contact.html');
+})
+
 app.get('/cart', (req, res) => {
   res.sendFile(__dirname + '/public/cart.html');
 })
@@ -153,6 +157,20 @@ app.get('/blog/:id', (req, res) => {
 
 app.get('/events', (req, res) => {
   pool.query('SELECT * FROM events', (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows)
+    } else {
+      res.status(400).send()
+    }
+  })
+})
+
+app.get('/messages', (req, res) => {
+  pool.query('SELECT * FROM messages', (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
@@ -281,7 +299,7 @@ app.post('/products', (req, res) => {
 app.post('/messages', (req, res) => {
   let message = JSON.parse(req.body.message);
   let ts = new Date()
-  pool.query('INSERT INTO messages(member_id, content, ts) VALUES($1, $2, $3)', [message.id, message.stock, ts], (err, resp) => {
+  pool.query('INSERT INTO messages(member_id, content, ts) VALUES($1, $2, $3)', [message.id, message.content, ts], (err, resp) => {
     if (err) {
       res.status(400).send(err)
     }

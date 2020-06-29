@@ -47,6 +47,7 @@ body {height: 100%}
 }
 
 .comments {
+    width: 100%;
     max-height: 80%;
     overflow-y: scroll;
 }
@@ -61,9 +62,11 @@ body {height: 100%}
     min-height: 100px;
     border-top: 2px double black;
     clear: both;
-    width: 100%;
+    min-width: 100%;
     
 }
+
+
 
 .ts {
     position: absolute;

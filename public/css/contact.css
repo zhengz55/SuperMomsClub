@@ -1,0 +1,97 @@
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif; background-image: url("../img/background.jpeg"); background-repeat: no-repeat; background-size: 100% 100%;}
+
+#bold {
+  font-size: 16;
+  font-weight: bold;
+  margin-right: 7px;
+}
+
+.contact-box {
+  position: relative;
+  width: 40%;
+  background-color: #abe7e7;
+  margin: 50px 40px;
+  float: left;
+  min-height: 300px;
+  font-size: 16;
+  border: 2px solid grey;
+  border-radius: 8px;
+  height: 270px;
+}
+
+#bold {
+  font-size: 19;
+}
+
+img {
+  position: absolute;
+  right: 10;
+  bottom: 10;
+}
+
+.contact-box p {
+  margin-left: 10px;
+}
+
+.suggestion-box {
+  width: 45%;
+  background-color: #abe7e7;
+  margin: 50px 40px;
+  float: left;
+  min-height: 300px;
+  border: 2px solid grey;
+  border-radius: 8px;
+  float: left;
+  height: 340px;
+}
+
+/*.suggestion-box * {
+  margin-left: 30px;
+}*/
+
+.suggestion-box input {
+  margin-left: 10px;
+  display: block;
+  border-radius: 3%;
+  padding: 5px 5px 5px;
+  margin-top: 9px;
+  width: 65%;
+}
+
+#message {
+  margin: 12px 10px 0px;
+  font-size: 18;
+  width: 65%;
+}
+
+#send-button {
+  border-radius: 10%;
+  font-size: 19;
+  margin-bottom: 10px;
+  background-color: #F0FFFF;
+
+}
+
+.inputs {
+  margin-left: 20px; 
+}
+
+.center-box {
+  /*background-color: grey;*/
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+
+
+
+textarea {
+  resize: none;
+}
+
+input {
+  font-size: 18;
+}
+

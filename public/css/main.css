@@ -1,6 +1,8 @@
 /*body {background-image: url("../img/profilePic.jpg");}*/
 
-
+#main-navbar {
+    height: 55px;
+}
 
 
 .topnav {

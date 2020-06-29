@@ -1,5 +1,6 @@
 
-
+const comments = document.querySelector(".comments")
+var users = []
 
 function createBlogs(data) {
 	$('.container-main').empty()
@@ -103,16 +104,18 @@ $(document).ready(function(){
 			item.onclick = loadBlogs
 		}
 
+
+
 		$('#post-comment-button').click(function() { // working from here
 			let message = {
-				content = $('.input-comment').val(),
-				id = localStorage.getItem("userID")
+				content: $('.input-comment').val(),
+				id: localStorage.getItem("userID")
 			}
 
 			$.ajax({
 				type: "POST",
 				url: '/messages',
-				data: { message: JSON.stringify(message) }
+				data: { message: JSON.stringify(message) },
 				success: function(resp) {
 					alert(resp)
 				},
@@ -152,6 +155,12 @@ $(document).ready(function(){
 		success: function(data) {
 
 	  		for (let blog of data) {
+	  			let user = {
+	  				id: blog.member_id,
+	  				username: blog.username
+	  			}
+	  			users.push(user)
+
 	  			log(blog)
 	  			let photos = blog.photo.split(',')
 	  			let b = document.createElement("div");
@@ -203,6 +212,24 @@ $(document).ready(function(){
 	  			}
 
 	  		}
+	  		$.ajax({
+				type: "GET",
+				url: '/messages',
+				success: function(data) {
+					for (let message of data) {
+						let user = users.filter(u => u.id === message.member_id).map(i => i.username)[0]
+						log(user)
+						let ts = message.ts;
+						let time = months[parseInt(ts.split("-")[1]) - 1] + " " + ts.split("-")[2].split("T")[0] + ", " + ts.split("T")[1].split(":")[0] + ":" + ts.split("T")[1].split(":")[1]
+
+						comments.innerHTML += `<div class="message">
+			          <p class="content">${message.content}
+			          </p>
+			          <span class="ts">By ${user}: at ${time}</span>
+			        </div>`
+					}
+				},
+			});
 		},
 	});
 
@@ -235,6 +262,8 @@ $(document).ready(function(){
 			},
 		});
 	})
+
+
 
 
 
