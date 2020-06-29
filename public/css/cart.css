@@ -78,12 +78,20 @@
 }
 
 
-.products-table {
+.products-table, .table-total {
     width: 80%;
-    border: 1px solid black;
+/*    border: 1px solid black;*/
     margin-left: 10%;
 
 
+}
+
+.table-total {
+    border-top: 1px solid black;
+}
+
+.table-total th {
+    width: 25%;
 }
 
 .header-row th {
@@ -106,13 +114,19 @@ td {
 /*    border: 1px dotted black;*/
 }
 
+.bottom-row {
+    width: 80%;
+    border: 1px solid black;
+}
+
+
 .product {
     width: 40%
 }
 
 .plus, .minus {
     border-radius: 50%;
-    background-color: blue;
+    background-color: #94fff4;
 }
 
 .minus {

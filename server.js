@@ -278,6 +278,19 @@ app.post('/products', (req, res) => {
   })
 })
 
+app.post('/messages', (req, res) => {
+  let message = JSON.parse(req.body.message);
+  let ts = new Date()
+  pool.query('INSERT INTO messages(member_id, content, ts) VALUES($1, $2, $3)', [message.id, message.stock, ts], (err, resp) => {
+    if (err) {
+      res.status(400).send(err)
+    }
+    else {
+      res.status(200).send()
+    }
+  })
+})
+
 app.post('/activities', (req, res) => {
   let event = JSON.parse(req.body.event);
   log(event.title, event.start_date, event.end_date, event.start_time, event.end_time, event.headcount, event.description, event.site, event.member_id)

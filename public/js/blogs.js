@@ -1,4 +1,6 @@
 
+
+
 function createBlogs(data) {
 	$('.container-main').empty()
 	for (let blog of data) {
@@ -100,6 +102,27 @@ $(document).ready(function(){
 		for (item of secondaryElements) {
 			item.onclick = loadBlogs
 		}
+
+		$('#post-comment-button').click(function() { // working from here
+			let message = {
+				content = $('.input-comment').val(),
+				id = localStorage.getItem("userID")
+			}
+
+			$.ajax({
+				type: "POST",
+				url: '/messages',
+				data: { message: JSON.stringify(message) }
+				success: function(resp) {
+					alert(resp)
+				},
+				error: function(data) {
+					if (data.status === 400) {
+						alert("something went wrong")
+					}
+				}
+			});
+		})
 
 		// $.ajax({
 		// 	type: "GET",

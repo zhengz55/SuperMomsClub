@@ -74,6 +74,13 @@ blog_ID integer references blogs(id),
 ts TIMESTAMP
 );
 
+CREATE TABLE messages (
+message_ID SERIAL PRIMARY KEY,
+member_id integer references members(id),
+content VARCHAR(2000),
+ts TIMESTAMP
+)
+
 
 
 
