@@ -11,6 +11,14 @@ h1 {
   margin-top: 15px;
 }
 
+.membership-table {
+    margin-top: 50px;
+}
+
+table * {
+    border: 1px solid black;
+}
+
 
 #product-form, #activity-form, #workshop-form {
     border: 1px solid black;
@@ -132,7 +140,7 @@ label {
     background-color: #abe7e7;
     border-radius: 5px;
     height: 600px;
-    width: 600px;
+    width: 800px;
     /* transform: translate(-50%, -50%); */
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
     text-align: center;

@@ -1,0 +1,146 @@
+body { background-color: #ffffff !important; }
+
+
+
+
+.submit-button {
+    border:1px solid rgb(20, 20, 20);
+    border-radius: 5px;
+    background-color:#31b1e4;
+    line-height:35px;
+    margin-bottom:100px;
+    display:inline-block;
+    height:10%;
+    width:30%;
+/*    left: 50%;*/
+    cursor:pointer;
+    margin-top:7%;
+    margin-bottom:5%;
+    text-align: center;
+    position: absolute;
+    bottom: 3%;
+    left: 10%;
+
+
+
+}
+
+
+.container-top {
+    width: 100%;
+    height: 260px;
+/*    border: 1px solid black;*/
+    position: relative;
+}
+
+.container-bottom {
+    margin-top: 20px;
+    width: 100%;
+    height: 40%;
+/*    border: 1px solid black;*/
+    position: relative;
+    text-align: left;
+}
+
+/*.container-bottom span {
+
+    
+}*/
+
+.container-bottom p label {
+    margin-left: 55px;
+}
+
+.container-bottom p {
+    margin-left: 55px;
+}
+
+.container-top * {
+    float: left;
+}
+
+.container-image {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    border: 1px solid green;
+    width: 300px;
+    height: 200px;
+}
+
+.container-product {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 50%;
+    height: 100%;
+
+}
+
+.container-description {
+    text-align: left;
+    overflow-y: scroll;
+    max-height: 100px;
+    border: 1px solid black;
+}
+
+p {
+    font-size: 19;
+}
+
+.container-product span {
+    margin-left: 25px;
+}
+
+.x {
+    position: absolute;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    top: 0px;
+    right: 0px;
+}
+
+#add-to-cart {
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
+    text-decoration-line: underline;
+
+}
+
+#go-to-cart {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    text-decoration-line: underline;
+}
+
+#add-to-cart:hover, #go-to-cart:hover {
+    cursor: pointer;
+}
+
+
+
+
+.bg {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.white-card {
+    position: relative;
+    background-color: #abe7e7;
+    border-radius: 5px;
+    height: 450px;
+    width: 800px;
+    /* transform: translate(-50%, -50%); */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+    text-align: center;
+    margin: 15px auto;
+}
+

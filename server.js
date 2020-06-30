@@ -108,7 +108,7 @@ app.get('/cart', (req, res) => {
 // })
 
 app.get('/member', (req, res) => {
-  res.sendFile(__dirname + '/public/member.html');
+  res.sendFile(__dirname + '/public/info.html');
 })
 
 app.get('/event/:member_id', (req, res) => {
