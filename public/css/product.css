@@ -78,6 +78,7 @@ body { background-color: #ffffff !important; }
 }
 
 .container-description {
+    width: 100%;
     text-align: left;
     overflow-y: scroll;
     max-height: 100px;
@@ -109,14 +110,14 @@ p {
 
 }
 
-#go-to-cart {
+#back-to-shopping {
     position: absolute;
     bottom: 15px;
     right: 15px;
     text-decoration-line: underline;
 }
 
-#add-to-cart:hover, #go-to-cart:hover {
+#add-to-cart:hover, #back-to-shopping:hover {
     cursor: pointer;
 }
 

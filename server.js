@@ -102,6 +102,10 @@ app.get('/cart', (req, res) => {
   res.sendFile(__dirname + '/public/cart.html');
 })
 
+app.get('/product', (req, res) => {
+  res.sendFile(__dirname + '/public/product.html');
+})
+
 // app.get('/users', (req, res) => {
 //   log("request received!")
 //   res.status(200).send()

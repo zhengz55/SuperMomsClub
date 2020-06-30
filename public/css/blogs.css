@@ -8,8 +8,8 @@ body {height: 100%}
     position: absolute;
     right: 0px;
     top: 55px;
-    display: none;
-    visibility: hidden;
+    display: block;
+    visibility: visible;
 
 }
 
@@ -43,6 +43,8 @@ body {height: 100%}
 }
 
 .container-comments {
+    float: right;
+    margin-right: 1.5%;
     width: 30%;
 }
 
@@ -76,9 +78,14 @@ body {height: 100%}
 }
 
 .container-main {
-    height: 80%;
-    width: 70%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-height: 65%;
+    width: 65%;
+    margin-left: 1.5%;
     overflow-y: scroll;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+    border-radius: 5px;
 }
 
 .comment-box {
@@ -105,9 +112,12 @@ body {height: 100%}
 }
 
 .container-secondary {
-    width: 70%;
+    width: 65%;
+    margin-left: 1.5%;
     height: 500px;
     background-color:#31b1e4;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+    border-radius: 5px;
 
 }
 

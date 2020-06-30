@@ -106,8 +106,8 @@ label {
     position: absolute;
     right: 0px;
     top: 55px;
-    display: none;
-    visibility: hidden;
+    display: block;
+    visibility: visible;
     border: 1px solid black;
 
 }
@@ -140,8 +140,34 @@ label {
 
 .container-main {
     min-height: 100%;
-    width: 70%;
+    width: 100%;
     background-color: yellow;
+
+}
+
+.r-box {
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    position: absolute;
+    right: 0;
+    float: none;
+}
+
+.r-box p {
+
+}
+
+.event-sign-up {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    margin-left: -50px;
+    background-color: #a5edfa;
+    border-radius: 15%;
+    width: 100px;
+    text-align: center;
+
 }
 
 
@@ -150,10 +176,15 @@ label {
     width: 100%;
     height: 250px;
     overflow: hidden;
+    position: relative;
 }
 
 .event:nth-child(odd) {
     background-color: #a1f0e5;
+}
+
+.event:nth-child(even) {
+    background-color: #73a5f5;
 }
 
 .event * {
@@ -163,7 +194,7 @@ label {
 
 .container-image{
     float: left;
-    width: 30%;
+    width: 23%;
     height: 100%;
 
 }

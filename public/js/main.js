@@ -4,6 +4,8 @@ const myStorage = window.localStorage
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+let signInSlot = document.querySelector('.signInSlot')
+
 
 function configureLoginForm() {
 	$(".signIn-form").submit(function(e) { // signin form
@@ -47,14 +49,38 @@ $(document).ready(function(){
 });
 
 function signIn() { // toggle sign in form visibility
-	log('clicked')
-	if ($(".signIn-form").is(":visible")) {
-		$(".signIn-form").css("visibility", "hidden");
-		$(".signIn-form").css("display", "none");
+
+	if ($('.signInSlot').is(':empty')) {
+		signInSlot.innerHTML += `      <form class="signIn-form">
+        
+        <h3 style="margin-left: 125px; margin-top: 15px;"><img src="/img/heart.png" height="50" width="50" />Sign In</h3>
+        <div class="input-container-signin">
+<!--             <label class="input-name-text-signin" for="company">Username</label> -->
+            <input class="input-text-box-signin" type="text" placeholder="Enter username" name="username" minlength="5" required>
+            </div>
+         <div class="input-container-signin">
+<!--             <label class="input-name-text-signin" for="confirm">Password</label> -->
+            <input class="input-text-box-signin" type="password" placeholder="Enter password" name="password" minlength="5" required>
+            </div>
+
+            <input class="button" type="submit" value="Sign In" id="signin-button">
+
+            <p style="text-align: center;">Have not an account yet? <a href="signup">Sign Up</a></p>
+
+      </form>`
 	}
 	else {
-		$(".signIn-form").css("visibility", "visible");
-		$(".signIn-form").css("display", "block");
+		$('.signInSlot').empty()
 	}
+	// log('clicked')
+	// if ($(".signIn-form").is(":visible")) {
+	// 	$(".signIn-form").css("visibility", "hidden");
+	// 	$(".signIn-form").css("display", "none");
+	// }
+	// else {
+	// 	$(".signIn-form").css("visibility", "visible");
+	// 	$(".signIn-form").css("display", "block");
+	// }
+
 
 }

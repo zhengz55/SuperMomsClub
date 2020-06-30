@@ -35,6 +35,7 @@ $(document).ready(function() {
 		  			img.setAttribute("class", "product-image")
 		  			img.src = product.image
 
+
 		  			let p1 = document.createElement("p")
 		  			p1.setAttribute("id", "price-tag")
 		  			p1.innerHTML = "$" + product.price;
@@ -61,8 +62,19 @@ $(document).ready(function() {
 		  			div.appendChild(p1)
 		  			div.appendChild(p2)
 		  			div.appendChild(p3)
-		  			$('.container-top-products').append(div)
 
+		  			$('.container-top-products').append(div)
+		  			div.addEventListener('click', function() {
+		  				let productObj = {
+		  					name: product.name,
+		  					image: product.image,
+		  					price: product.price,
+		  					description: product.description,
+		  					stock: product.stock
+		  				}
+		  				localStorage.setItem("product", JSON.stringify(productObj))
+		  				window.location.href = "product";
+		  			})
 		  		}
 
 		  		$('.x').click(function() {
@@ -84,10 +96,10 @@ $(document).ready(function() {
 		});
 	})
 
-	$(window).on("unload", function() {
-		purchases = JSON.stringify(purchases)
-		localStorage.setItem("purchases", purchases)
-	})
+	// $(window).on("unload", function() {
+	// 	purchases = JSON.stringify(purchases)
+	// 	localStorage.setItem("purchases", purchases)
+	// })
 
 
 });
