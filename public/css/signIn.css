@@ -13,7 +13,7 @@ body { background-color: #ffffff !important; }
 .white-card {
     /*position: absolute;*/
     position: relative;
-	background-color: #28cfcf;
+	background-color: #b6e3fa;
     border-radius: 50px;
     height: 300px;
     width: 600px;
@@ -83,7 +83,7 @@ body { background-color: #ffffff !important; }
 .button {
     border:0px solid rgb(20, 20, 20);
     border-radius: 5px;
-    background-color:#1d8b86;
+    background-color:#66c9fa;
 	line-height:35px;
 	margin-bottom:70px;
 	display:block;

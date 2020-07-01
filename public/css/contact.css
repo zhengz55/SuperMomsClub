@@ -11,7 +11,7 @@ body {font-family: Verdana, sans-serif; background-image: url("../img/background
 .contact-box {
   position: relative;
   width: 40%;
-  background-color: #abe7e7;
+  background-color: #d4f1fd;
   margin: 50px 40px;
   float: left;
   min-height: 300px;
@@ -37,7 +37,7 @@ img {
 
 .suggestion-box {
   width: 45%;
-  background-color: #abe7e7;
+  background-color: #d4f1fd;
   margin: 50px 40px;
   float: left;
   min-height: 300px;

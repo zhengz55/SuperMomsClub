@@ -37,7 +37,8 @@ body {background-image: url("../img/profilePic.jpg");}
 }
 
 .white-card {
-    background-color: #abe7e7;
+    background-color: #b6e3fa;
+    ;
     border-radius: 5px;
     height: 600px;
     width: 600px;
@@ -79,7 +80,8 @@ body {background-image: url("../img/profilePic.jpg");}
 .button {
     border:1px solid rgb(20, 20, 20);
     border-radius: 5px;
-    background-color:#31b1e4;
+    background-color: #78d1fd;
+    ;
     line-height:30px;
     margin-bottom:100px;
     display:block;
