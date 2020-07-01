@@ -177,6 +177,7 @@ label {
     height: 250px;
     overflow: hidden;
     position: relative;
+
 }
 
 .event:nth-child(odd) {
