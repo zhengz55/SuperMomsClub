@@ -1,16 +1,15 @@
-Members (
-memberID SERIAL
-username
-password
-firstName
-lastName
-email
-type
-interests varchar(500)
-(photo gallery) path
-language preference binary
+CREATE TABLE members (
+memberID SERIAL PRIMARY KEY,
+username VARCHAR(20) UNIQUE,
+password VARCHAR(30),
+firstName VARCHAR(100),
+lastName VARCHAR(100),
+email VARCHAR(100),
+type integer,
+interests varchar(1000),
+language_preference integer,
 bio varchar(2000)
-)
+);
 
 CREATE TABLE events (
 ID SERIAL PRIMARY KEY,
@@ -25,13 +24,6 @@ site VARCHAR(400),
 member_id integer references members(id),
 photo VARCHAR(400)
 );
-
-orders (
-orderID SERIAL
-product ID
-dateTime
-customerID
-)
 
 CREATE TABLE products (
 ID SERIAL PRIMARY KEY,
@@ -59,18 +51,20 @@ name VARCHAR(200),
 image VARCHAR(100),
 description VARCHAR(4000),
 link VARCHAR(200),
-objective VARCHAR(500),
 signup_start VARCHAR(200),
 signup_end VARCHAR(200),
 site VARCHAR(200),
 capacity integer,
-member_id integer references members(id)
+member_id integer references members(memberid),
+participants VARCHAR(2000)
 );
 
 CREATE TABLE comments (
-member_ID integer references members(id),
+commentID SERIAL PRIMARY KEY,
+member_name VARCHAR(100) references members(username),
+member_ID integer references members(memberid),
 content VARCHAR(2000),
-blog_ID integer references blogs(id),
+blog_ID integer references blogs(blogid),
 ts TIMESTAMP
 );
 
@@ -79,7 +73,7 @@ message_ID SERIAL PRIMARY KEY,
 member_id integer references members(id),
 content VARCHAR(2000),
 ts TIMESTAMP
-)
+);
 
 
 

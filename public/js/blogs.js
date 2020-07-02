@@ -91,7 +91,7 @@ $(document).ready(function(){
 
 
 		nav.appendChild(all)
-		if (localStorage.getItem("type") === "Tier 3" || localStorage.getItem("type") === "Tier 4") {
+		if (localStorage.getItem("type") === "3" || localStorage.getItem("type") === "4") {
 			let myBlogs = document.createElement("a")
 			myBlogs.setAttribute("id", "all-activities")
 			myBlogs.innerHTML = "My posts"

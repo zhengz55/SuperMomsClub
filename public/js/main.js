@@ -6,6 +6,10 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 let signInSlot = document.querySelector('.signInSlot')
 
+function parseDate(ts) {
+	return months[parseInt(ts.split("-")[1]) - 1] + " " + ts.split("-")[2].split("T")[0] + ", " + ts.split("T")[1].split(":")[0] + ":" + ts.split("T")[1].split(":")[1]
+}
+
 
 function configureLoginForm() {
 	$(".signIn-form").submit(function(e) { // signin form
@@ -18,7 +22,7 @@ function configureLoginForm() {
 			success: function(data) {
 				log(data)
 				let arr = []
-				localStorage.setItem("userID", data.id)
+				localStorage.setItem("userID", data.memberid)
 				localStorage.setItem("email", data.email)
 				localStorage.setItem("username", data.username)
 				localStorage.setItem("bio", data.bio)

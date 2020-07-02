@@ -218,7 +218,22 @@ app.get('/fetchAllProducts', (req, res) => {
 // })
 
 app.get('/fetchBlogs', (req, res) => {
-  pool.query('SELECT * FROM blogs LEFT OUTER JOIN members ON blogs.member_id = members.id', (err, resp) => {
+  pool.query('SELECT * FROM blogs LEFT OUTER JOIN members ON blogs.member_id = members.memberid', (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows)
+    } else {
+      res.status(400).send()
+    }
+  })
+})
+
+app.get('/comment/:id', (req, res) => {
+  let id = req.params.id;
+  pool.query('SELECT * FROM comments where blog_id=$1', [id], (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
@@ -277,7 +292,8 @@ app.post('/userLogin', (req, res) => {
 
 app.patch('/userProfile', (req, res) => {
   let curUser = JSON.parse(req.body.user);
-  pool.query('UPDATE members SET email=$1, type=$2, bio=$3, interests=$4 where id=$5', [curUser.email, curUser.type, curUser.bio, curUser.interests, curUser.id], (err, resp) => {
+  log(curUser.id)
+  pool.query('UPDATE members SET email=$1, type=$2, bio=$3, interests=$4 where memberid=$5', [curUser.email, curUser.type, curUser.bio, curUser.interests, curUser.id], (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
@@ -342,8 +358,34 @@ app.post('/blogs', (req, res) => {
 
 app.post('/workshops', (req, res) => {
   let workshop = JSON.parse(req.body.workshop);
-  pool.query('INSERT INTO workshops(name, image, description, link, objective, signup_start, signup_end, site, capacity, member_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', [workshop.name, workshop.image, workshop.description, workshop.link, workshop.objective, workshop.signup_start, workshop.signup_end, workshop.site, workshop.capacity, workshop.member_id], (err, resp) => {
+
+
+
+  let start_day = workshop.start_date.split("-")
+  let start_hour = workshop.start_time.split(":")
+  let end_day = workshop.end_date.split("-");
+  let end_hour = workshop.end_time.split(":")
+
+
+
+  let ts_start = new Date(start_day[0], start_day[1] - 1, start_day[2], start_hour[0], start_hour[1])
+  let ts_end = new Date(end_day[0], end_day[1] - 1, end_day[2], end_hour[0], end_hour[1])
+  log(ts_start, ts_end)
+
+  let arr = [workshop.title, workshop.photo, workshop.description, workshop.link, ts_start, ts_end, workshop.site, workshop.headcount, workshop.member_id, "[]"];
+
+  pool.query('INSERT INTO workshops(name, image, description, link, signup_start, signup_end, site, capacity, member_id, participants) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', arr, (err, resp) => {
+    res.status(200).send()
+  })
+})
+
+app.post('/comments', (req, res) => {
+  let comment = JSON.parse(req.body.comment);
+  log(comment)
+  let timestamp = new Date();
+  pool.query('INSERT INTO comments(member_name, member_id, content, blog_ID, ts) VALUES($1, $2, $3, $4, $5)', [comment.member_name, comment.member_id, comment.content, comment.blogID, timestamp], (err, resp) => {
     if (err) {
+      log(err)
       res.status(500).send(err)
     }
     else {
@@ -351,6 +393,7 @@ app.post('/workshops', (req, res) => {
     }
   })
 })
+
 
 
 

@@ -1,9 +1,9 @@
 
-
+const comments = document.querySelector('.comments')
 
 
 $(document).ready(function(){
-	let id = localStorage.getItem("blogView")
+	var id = localStorage.getItem("blogView")
 	log(id)
 	$.ajax({
 		type: "GET",
@@ -35,4 +35,44 @@ $(document).ready(function(){
 
 		},
 	});
+
+	$('.post-button').click(function() {
+		let comment = {
+			member_name: localStorage.getItem("username"),
+			member_id: localStorage.getItem("userID"),
+			content: $('#comment-text').val(),
+			blogID: id,
+		}
+		$.ajax({
+			type: "POST",
+			url: '/comments/',
+			data: { comment: JSON.stringify(comment) },
+			success: function() {
+				alert("success")
+			}
+
+		});
+
+	})
+
+	$.ajax({
+		type: "GET",
+		url: '/comment/' + id,
+		success: function(data) {
+			$('.comments').empty();
+			for (comment of data) {
+				let ts = months[parseInt(comment.ts.split("-")[1]) - 1] + " " + comment.ts.split("-")[2].split("T")[0] + ", " + comment.ts.split("T")[1].split(":")[0] + ":" + comment.ts.split("T")[1].split(":")[1]
+				comments.innerHTML += `<p><span>${comment.member_name}: </span>${comment.content}<span id="ts">${ts}</span></p>`
+			}
+		}
+	})
+
+
+
+
+
+
+
+
+
 });

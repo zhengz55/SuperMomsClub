@@ -16,25 +16,18 @@ $(document).ready(function(){
 	
 	let arr = JSON.parse(localStorage.getItem("purchases"))
 	log(arr)
-	arr.forEach(item => {
-		if (!d[item.id]) {
-			d[item.id] = [1, item.price, item.name, item.image];
-		} else {
-			d[item.id][0] += 1;
-		}
-	})
-	log(d)
 
-	for (let item of Object.entries(d)) {
+
+	for (let item of arr) {
 		log(item)
 		productsTable.innerHTML += `<tr>
-          <td class="product"><img src="${item[1][3]}" width="50%" height="70%"></td>
-          <td class="product-name">${item[1][2]}</td>
-          <td>$${item[1][1]}</td>
-          <td><button type="button" class="minus">-</button><span class="quantity">${item[1][0]}</span><button type="button" class="plus">+</button></td>
-          <td><span class="quantity">$${item[1][0] * item[1][1]}</span></td>
+          <td class="product"><img src="${item.image}" width="50%" height="70%"></td>
+          <td class="product-name">${item.name}</td>
+          <td>$${item.price}</td>
+          <td><button type="button" class="minus">-</button><span class="quantity">${item.quantity}</span><button type="button" class="plus">+</button></td>
+          <td><span class="quantity">$${item.price * item.quantity}</span></td>
         </tr>`
-        totalPrice += item[1][0] * item[1][1]
+        totalPrice += item.price * item.quantity
 
 		// $('.product-container').append(product)
 	}

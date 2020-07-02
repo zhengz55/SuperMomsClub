@@ -93,8 +93,9 @@ $(document).ready(function(){
 		all.setAttribute("id", "all-activities")
 		all.innerHTML = "All Activities"
 		all.href = "#"
+		$('#secondary-navbar').append(all)
 		log(localStorage.getItem("type"))
-		if (localStorage.getItem("type") === "Tier 3" || localStorage.getItem("type") === "Tier 4") {
+		if (localStorage.getItem("type") === "3" || localStorage.getItem("type") === "4") {
 			let myActivities = document.createElement("a")
 			myActivities.setAttribute("id", "my-activities")
 			myActivities.innerHTML = "My Activities"
@@ -147,7 +148,7 @@ $(document).ready(function(){
 
 		}
 
-		$('#secondary-navbar').append(all)
+		
 		$('#all-activities').click(loadEvents)
 
 

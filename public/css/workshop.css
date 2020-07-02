@@ -16,7 +16,80 @@
     background-color: yellowgreen;
 }
 
+
+.top-right-box {
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    height: 40%;
+    width: 55%;
+    border: 1px solid black;
+}
+
+.container-bottom {
+    position: absolute;
+    text-align: left;
+    top: 48%;
+    left: 5%;
+    height: 42%;
+    width: 92%;
+    border: 1px solid black;
+}
+
+.title {
+    position: absolute;
+    left: 5%;
+    top: 5%:;
+}
+
+.date {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+}
+
+.time {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+}
+
+.site {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.description {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    max-width: 95%;
+    height: 50px;
+    overflow-y: scroll;
+
+}
+
+#signUp-workshop {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 90px;
+    height: 30px;
+    line-height: 25px;
+    border-radius: 6%;
+    background-color: #5be374; 
+}
+
+.price {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    
+}
+
 .workshop{
+    position: relative;
     width: 80%;
     margin-left: 10%;
     height: 350px;
@@ -26,8 +99,9 @@
 }
 
 .workshop-image{
-    margin-left: 5%;
-    margin-top: 5%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
 }
 
 .workshop p {
@@ -35,3 +109,56 @@
     font-weight: bold;
     font-size: 20;
 }
+
+#activity-form {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 60%;
+    height: 450px;
+    background-color: white;
+    z-index: 1;
+}
+
+
+
+.x {
+    position: absolute;;
+    right: 0;
+    top: 0;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.submit-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.leftbox {
+    position: absolute;
+    top: 15%;
+    left: 25px;
+    width: 40%;
+    height: 100%;
+}
+
+.rightbox {
+    position: absolute;
+    top: 15%;
+    right: 25px;
+    width: 40%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+

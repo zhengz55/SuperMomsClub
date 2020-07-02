@@ -1,7 +1,7 @@
 .white-card {
     background-color: #d4f1fd;
     border-radius: 5px;
-    height: 900px;
+    height: 1100px;
     width: 80%;
     /* transform: translate(-50%, -50%); */
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
@@ -17,10 +17,37 @@
 
 }
 
+p {
+    position: relative;
+}
+
+#ts {
+    position: absolute;
+    right: 0;
+}
+
+.comments {
+    width: 80%;
+    border: 1px solid black;
+    margin: 15px auto;
+    height: 200px;
+    overflow-y: scroll;
+    text-align: left;
+}
+
+.comments p {
+    border-bottom: 1px dotted black;
+}
+
+.comments p span {
+    font-weight: bold;
+    margin-right: 25px;
+}
+
 .container-text {
     width: 80%;
-    height: 300px;
-/*    border: 1px solid black;*/
+    height: 220px;
+    border: 1px solid black;
     margin: 20px auto;
     overflow-y: scroll;
     text-align: initial;
@@ -33,6 +60,7 @@
 }
 
 .container-comment {
+
     margin-left: 10%;
     text-align: initial;
 }
