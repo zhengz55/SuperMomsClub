@@ -90,6 +90,10 @@ app.get('/workshops', (req, res) => {
   res.sendFile(__dirname + '/public/workshop.html');
 })
 
+app.get('/faq', (req, res) => {
+  res.sendFile(__dirname + '/public/faq.html');
+})
+
 app.get('/blogView', (req, res) => {
   res.sendFile(__dirname + '/public/blogView.html');
 })
@@ -304,6 +308,32 @@ app.patch('/userProfile', (req, res) => {
 
 })
 
+app.patch('/workshop', (req, res) => {
+  let id = req.body.workshopID
+  log(typeof id)
+  pool.query('SELECT * from  workshops where id=$1', [req.body.workshopID], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else {
+      log(resp.rows[0])
+      let newParticipants = resp.rows[0].participants
+      newParticipants = JSON.parse(newParticipants)
+      log(typeof newParticipants, newParticipants)
+      newParticipants.push(req.body.username)
+      newParticipants = JSON.stringify(newParticipants)
+      pool.query('UPDATE workshops SET participants=$1 where id=$2', [newParticipants, id], (e, r) => {
+        if (err) {
+          res.status(501).send(err)
+        } else {
+          res.status(200).send()
+        }
+      })
+    }
+  })
+
+})
+
 app.post('/products', (req, res) => {
   let product = JSON.parse(req.body.product);
   pool.query('INSERT INTO products(name, stock, description, image, price, purchases) VALUES($1, $2, $3, $4, $5, $6)', [product.name, product.stock, product.description, product.photo, product.price, 0], (err, resp) => {
@@ -372,9 +402,9 @@ app.post('/workshops', (req, res) => {
   let ts_end = new Date(end_day[0], end_day[1] - 1, end_day[2], end_hour[0], end_hour[1])
   log(ts_start, ts_end)
 
-  let arr = [workshop.title, workshop.photo, workshop.description, workshop.link, ts_start, ts_end, workshop.site, workshop.headcount, workshop.member_id, "[]"];
+  let arr = [workshop.title, workshop.photo, workshop.description, workshop.link, ts_start, ts_end, workshop.site, workshop.headcount, workshop.member_id, workshop.price, "[]"];
 
-  pool.query('INSERT INTO workshops(name, image, description, link, signup_start, signup_end, site, capacity, member_id, participants) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', arr, (err, resp) => {
+  pool.query('INSERT INTO workshops(name, image, description, link, signup_start, signup_end, site, capacity, member_id, price, participants) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', arr, (err, resp) => {
     res.status(200).send()
   })
 })

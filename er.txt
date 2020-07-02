@@ -56,7 +56,8 @@ signup_end VARCHAR(200),
 site VARCHAR(200),
 capacity integer,
 member_id integer references members(memberid),
-participants VARCHAR(2000)
+participants VARCHAR(2000),
+price decimal
 );
 
 CREATE TABLE comments (
@@ -74,12 +75,6 @@ member_id integer references members(id),
 content VARCHAR(2000),
 ts TIMESTAMP
 );
-
-
-
-
-
-
 
 
 
