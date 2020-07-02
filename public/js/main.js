@@ -9,8 +9,8 @@ let signInSlot = document.querySelector('.signInSlot')
 
 function configureLoginForm() {
 	$(".signIn-form").submit(function(e) { // signin form
+
 		e.preventDefault();
-		log(123)
 		$.ajax({
 			type: "POST",
 			url: '/userLogin',
@@ -68,6 +68,7 @@ function signIn() { // toggle sign in form visibility
             <p style="text-align: center;">Have not an account yet? <a href="signup">Sign Up</a></p>
 
       </form>`
+      	configureLoginForm();
 	}
 	else {
 		$('.signInSlot').empty()
