@@ -1,0 +1,19 @@
+{
+  "name": "SuperMomsClub",
+  "version": "1.0.0",
+  "description": "node app ",
+  "main": "server.js",
+  "scripts": {
+  "start": "node server.js"
+},
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/zhengz55/SuperMomsClub"
+},
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+  "url": ""
+},
+  "homepage": ""
+}
