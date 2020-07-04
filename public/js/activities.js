@@ -1,12 +1,21 @@
+var allUsers = [];
 
+$.ajax({
+	type: "GET",
+	url: '/users',
+	success: function(data) {
+		allUsers = data;
+		log(allUsers)
+	}
+})
 
 
 function createEvents(data) {
-
 	log(data)
+
 	$('.container-main').empty()
 	for (let event of data) {
-
+		let member = allUsers.filter(u => u.memberid === event.member_id).map(i => i.username)[0]
 		let r_box = document.createElement("div")
 		r_box.setAttribute("class", "r-box")
 		r_box.innerHTML = `<p>Currently Signed Up: <span>5</span</p><button class="event-sign-up">Sign Up</button>`
@@ -26,7 +35,7 @@ function createEvents(data) {
 		img.src = event.photo;
 
 		let p1 = document.createElement("p")
-		p1.innerHTML = event.site + ", " + event.member_id;
+		p1.innerHTML = event.site + ", " + member;
 
 		let containerDescription = document.createElement("div")
 		containerDescription.setAttribute("class", "container-description")
@@ -85,6 +94,8 @@ function loadEvents(e) {
 }
 
 $(document).ready(function(){
+
+
 
 	$('.secondary-navslot').load("main.html #secondary-navbar", function() {
 		let nav = document.querySelector("#secondary-navbar")

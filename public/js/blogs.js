@@ -34,6 +34,7 @@ function createBlogs(data) {
 		p1.appendChild(a)
 		let p2 = document.createElement("p")
 		p2.innerHTML = blog.username;
+
 		let p3 = document.createElement("p")
 		p3.innerHTML = blog.content;
 
@@ -50,6 +51,11 @@ function createBlogs(data) {
 		h3.onclick = function() {
 			localStorage.setItem("blogView", blog.blogid)
 			window.location.href = "blogView"
+		}
+		p2.onclick = function() {
+			log('clicked')
+			localStorage.setItem("viewProfile", p2.innerHTML)
+			window.location.href = "viewProfile"
 		}
 
 	}
@@ -80,6 +86,9 @@ function loadBlogs(e) {
 $(document).ready(function(){
 	// $('.navslot').load("home.html .navbar") // load navbar from homepage
 	// $('.signInSlot').load("signup.html .signIn-form");
+	let date = new Date()
+	log(date)
+
 	$('.secondary-navslot').load("main.html #secondary-navbar", function() {
 		let nav = document.querySelector("#secondary-navbar")
 		$('#secondary-navbar').empty()
@@ -127,6 +136,10 @@ $(document).ready(function(){
 			});
 		})
 
+		if (localStorage.getItem("type") === "1") {
+			$('.container-secondary').empty()
+		}
+
 		// $.ajax({
 		// 	type: "GET",
 		// 	url: '/leftjoin',
@@ -145,21 +158,33 @@ $(document).ready(function(){
 
 	})
 
-
-
-	log(months)
+	$.ajax({
+		type: "GET",
+		url: '/users',
+		success: function(data) {
+			for (let user of data) {
+				let u = {
+					id: user.memberid,
+					username: user.username
+				}
+				users.push(u)
+			}
+			
+		}
+	})
 
 	$.ajax({
 		type: "GET",
 		url: '/fetchBlogs',
 		success: function(data) {
+			log(data)
 
 	  		for (let blog of data) {
 	  			let user = {
 	  				id: blog.member_id,
 	  				username: blog.username
 	  			}
-	  			users.push(user)
+	  			// users.push(user)
 
 	  			log(blog)
 	  			let photos = blog.photo.split(',')
@@ -210,6 +235,12 @@ $(document).ready(function(){
 	  				localStorage.setItem("blogView", blog.blogid)
 	  				window.location.href = "blogView"
 	  			}
+
+			  	p2.onclick = function() {
+					log('clicked')
+					localStorage.setItem("viewProfile", p2.innerHTML)
+					window.location.href = "viewProfile"
+				}
 
 	  		}
 	  		$.ajax({
@@ -262,6 +293,7 @@ $(document).ready(function(){
 			},
 		});
 	})
+
 
 
 

@@ -1,6 +1,7 @@
 //'use strict';
 const log = console.log
 
+// const http = require('http')
 
 const express = require('express');
 const port = process.env.PORT || 3000;
@@ -57,6 +58,12 @@ function ValidateEmail(mail)
     return (false)
 }
 
+Date.withOffset = function( offset ){
+    var r = new Date();
+    r.setHours(r.getHours()+offset);
+    return r;
+};
+
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
@@ -84,6 +91,10 @@ app.get('/shopping', (req, res) => {
 
 app.get('/userProfile', (req, res) => {
   res.sendFile(__dirname + '/public/profile.html');
+})
+
+app.get('/viewProfile', (req, res) => {
+  res.sendFile(__dirname + '/public/viewProfile.html');
 })
 
 app.get('/workshops', (req, res) => {
@@ -191,6 +202,21 @@ app.get('/messages', (req, res) => {
   })
 })
 
+app.get('/users', (req, res) => {
+  pool.query('SELECT * FROM members', (err, resp) => {
+    if (err) {
+      log(err)
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows)
+    } else {
+      res.status(400).send()
+    }
+  })
+})
+
 
 
 app.get('/fetchAllProducts', (req, res) => {
@@ -268,7 +294,7 @@ app.get('/fetchWorkshops', (req, res) => { // not tested yet
 app.post('/users', (req, res) => {
   log("request received!")
   log(req.body)
-  pool.query('INSERT INTO members(username, password, firstName, lastName) VALUES($1, $2, $3, $4)', [req.body.username, req.body.password, req.body.firstName, req.body.lastName], (err, resp) => {
+  pool.query('INSERT INTO members(username, password, firstName, lastName, email, interests, type) VALUES($1, $2, $3, $4, $5, $6, $7)', [req.body.username, req.body.password, req.body.firstName, req.body.lastName, "Enter your email", "[]", 1], (err, resp) => {
     if (err) {
       return console.error('Error executing query', err.stack)
     }
@@ -294,10 +320,38 @@ app.post('/userLogin', (req, res) => {
   })
 })
 
+app.post('/fetchUser', (req, res) => {
+  var user = req.body.user
+  pool.query('SELECT * FROM members where username=$1', [user], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else if (resp.rows[0]) {
+      log(resp.rows[0])
+      res.status(200).send(resp.rows[0])
+    } else {
+      res.status(400).send()
+    }
+  })
+})
+
 app.patch('/userProfile', (req, res) => {
   let curUser = JSON.parse(req.body.user);
   log(curUser.id)
   pool.query('UPDATE members SET email=$1, type=$2, bio=$3, interests=$4 where memberid=$5', [curUser.email, curUser.type, curUser.bio, curUser.interests, curUser.id], (err, resp) => {
+    if (err) {
+      res.status(500).send(err)
+    }
+    else {
+      res.status(200).send()
+    }
+  })
+
+})
+
+app.patch('/photo', (req, res) => {
+  let photo = JSON.parse(req.body.photo)
+  pool.query('UPDATE members SET image=$1 where memberid=$2', [photo, req.body.id], (err, resp) => {
     if (err) {
       res.status(500).send(err)
     }
@@ -348,7 +402,7 @@ app.post('/products', (req, res) => {
 
 app.post('/messages', (req, res) => {
   let message = JSON.parse(req.body.message);
-  let ts = new Date()
+  let ts = Date.withOffset(-7)
   pool.query('INSERT INTO messages(member_id, content, ts) VALUES($1, $2, $3)', [message.id, message.content, ts], (err, resp) => {
     if (err) {
       res.status(400).send(err)
@@ -375,7 +429,7 @@ app.post('/activities', (req, res) => {
 app.post('/blogs', (req, res) => {
   let blog = JSON.parse(req.body.blog);
   log(blog)
-  let timestamp = new Date();
+  let timestamp = Date.withOffset(-7)
   pool.query('INSERT INTO blogs(title, content, photo, ts, member_id) VALUES($1, $2, $3, $4, $5)', [blog.title, blog.content, blog.photo.toString(), timestamp, blog.member_id], (err, resp) => {
     if (err) {
       res.status(500).send(err)
@@ -412,7 +466,7 @@ app.post('/workshops', (req, res) => {
 app.post('/comments', (req, res) => {
   let comment = JSON.parse(req.body.comment);
   log(comment)
-  let timestamp = new Date();
+  let timestamp = new Date().withOffset(-7)
   pool.query('INSERT INTO comments(member_name, member_id, content, blog_ID, ts) VALUES($1, $2, $3, $4, $5)', [comment.member_name, comment.member_id, comment.content, comment.blogID, timestamp], (err, resp) => {
     if (err) {
       log(err)

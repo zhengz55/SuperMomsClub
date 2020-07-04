@@ -75,6 +75,7 @@
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
     text-align: center;
     margin: 15px auto;
+    position: relative;
 }
 
 
@@ -100,6 +101,16 @@
 /*    border: 2px solid black;*/
 }
 
+#remove-button {
+    position: absolute;
+    top: 50%;
+    left: -15%;
+    width: 25px;
+    height: 35px;
+    margin-top: -17px;
+
+}
+
 img {
     margin-left: 25px;
 }
@@ -121,7 +132,8 @@ td {
 
 
 .product {
-    width: 40%
+    width: 40%;
+    position: relative;
 }
 
 .plus, .minus {
@@ -136,6 +148,16 @@ td {
 .plus {
     margin-left: 10%;
 }
+
+.proceed-to-checkout {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #8bb6fc;
+    border-radius: 16px;
+
+}
+
 
 
 

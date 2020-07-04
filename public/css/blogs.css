@@ -129,7 +129,7 @@ body {height: 100%}
     width: 100%;
     height: 250px;
     background-color:#d5f3ff;
-    overflow: hidden;
+    overflow: scroll;
     border-bottom: 1px dotted black;
 }
 

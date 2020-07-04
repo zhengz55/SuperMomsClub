@@ -27,6 +27,7 @@ body { background-color: #d4f1fd !important; }
     background-color: #b6e3fa;
     border-radius: 5px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+    position: relative;
 
 }
 

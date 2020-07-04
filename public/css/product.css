@@ -82,7 +82,7 @@ body { background-color: #ffffff !important; }
     text-align: left;
     overflow-y: scroll;
     max-height: 100px;
-    border: 1px solid black;
+/*    border: 1px solid black;*/
 }
 
 p {

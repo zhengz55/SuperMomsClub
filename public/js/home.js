@@ -1,11 +1,11 @@
-// const log = console.log
 
-
-// const homeImg = document.querySelector("#image-home")
 
 var images = ["img/rot1.jpg", "img/rot2.jpeg", "img/rot3.jpeg"]
 
 var img = 0;
+
+
+
 
 
 var slideIndex = 1;
@@ -39,32 +39,20 @@ function showSlides(n) {
 
 
 $(document).ready(function() {
-	// $('.signInSlot').load("signup.html .signIn-form");
+
+	$.ajax({
+		type: "GET",
+		url: '/fetchAllProducts',
+		success: function(data) {
+			let products = document.querySelector('.products')
+			$('.products').empty()
+	  		for (let product of data) {
+	  			products.innerHTML += `<img src=${product.image} width=10% height=100 style="border: 1px solid pink; margin-top: 15px; margin-left: 5%; float: left;">`
+	  		}
+		},
+	});
 
 
-	// $(".signIn-form").submit(function(e) { // signin form
-	// 	e.preventDefault();
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: '/userLogin',
-	// 		data: $(this).serialize(),
-	// 		success: function() {
-	// 	  		alert(123)
-	// 		},
-	// 	});
-	// })
-
-
-	// homeImg.src = images[img];
-
-	// setInterval(function() {
-	// 	if (img === 2) {
-	// 		img = 0;
-	// 	} else {
-	// 		img++;
-	// 	}
-	// 	homeImg.src = images[img]
-	// }, 5000)
 
 
 

@@ -13,14 +13,38 @@ $(document).ready(function() {
 	$('#profile-name').text(myStorage.getItem("firstname") + " " + myStorage.getItem("lastname") + "' Profile")
 	$('#email').text(myStorage.getItem("email"))
 	$('#membership').text(myStorage.getItem("type"))
-	$('#yourbio').text(myStorage.getItem("bio") + myStorage.getItem("password")) // remember to remove this last part
+	$('#yourbio').text(myStorage.getItem("bio"))
 	$('#interests').text(myStorage.getItem("interests"))
+	$("#profile-img").attr("src",`img/${myStorage.getItem("photo")}`);
+
+	if (myStorage.getItem("type") !== "4") {
+		$('#add-product').css("visibility", "hidden")
+	}
+
+	$('#add-activity').css("visibility", "hidden")
+
+	$('#photo-button').click(() => {
+		let photo = $('#photo-src').val();
+		$.ajax({
+			type: "PATCH",
+			url: '/photo',
+			data: {photo: JSON.stringify(photo), id:localStorage.getItem("userID")},
+			success: function() {
+				$('#profile-img').attr("src", `img/${photo}`)
+			}
+		})
+
+	})
 
 	$('#editButton').click(function() {
 		if (this.value === "Click To Edit") {
 			this.value = "Save";
 			for (let span of spans) {
-				span.contentEditable = true;
+				if (span.id !== "membership") {
+					span.contentEditable = true;
+				}
+				
+
 			}
 
 		} else {
@@ -41,7 +65,10 @@ $(document).ready(function() {
 				url: '/userProfile',
 				data: {user: JSON.stringify(user)},
 				success: function() {
-					log("success")
+					localStorage.setItem("email", user.email)
+					localStorage.setItem("bio", user.bio)
+					localStorage.setItem("interests", user.interests)
+					window.location.href = "userProfile"
 				}
 			})
 		}

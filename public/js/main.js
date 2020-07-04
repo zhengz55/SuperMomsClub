@@ -14,6 +14,7 @@ function parseDate(ts) {
 function configureLoginForm() {
 	$(".signIn-form").submit(function(e) { // signin form
 
+
 		e.preventDefault();
 		$.ajax({
 			type: "POST",
@@ -32,6 +33,7 @@ function configureLoginForm() {
 				localStorage.setItem("password", data.password)
 				localStorage.setItem("interests", data.interests)
 				localStorage.setItem("purchases", JSON.stringify(arr))
+				localStorage.setItem("photo", data.image)
 				window.location.href = "userProfile";
 			},
 			error: function(data) {
@@ -47,7 +49,6 @@ $(document).ready(function(){
 	$('.navslot').load("main.html #main-navbar") // load navbar from homepage
 	$('.signInSlot').load("main.html .signIn-form", configureLoginForm);
 
-	// write here
 
 
 });
@@ -57,7 +58,7 @@ function signIn() { // toggle sign in form visibility
 	if ($('.signInSlot').is(':empty')) {
 		signInSlot.innerHTML += `      <form class="signIn-form">
         
-        <h3 style="margin-left: 125px; margin-top: 15px;"><img src="/img/heart.png" height="50" width="50" />Sign In</h3>
+        <h3 style="margin-left: 125px; margin-top: 15px;"><img src="/img/WechatIMG1211.jpeg" height="50" width="50" />Sign In</h3>
         <div class="input-container-signin">
 <!--             <label class="input-name-text-signin" for="company">Username</label> -->
             <input class="input-text-box-signin" type="text" placeholder="Enter username" name="username" minlength="5" required>
