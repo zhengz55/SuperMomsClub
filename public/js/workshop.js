@@ -105,8 +105,8 @@ function fetchWorkshops() {
 				    </div>
 
 				    <div class="container-bottom">
-				      <p class="site">${workshop.site}</p>
-				      <p class="description">${workshop.description}</p>
+				      <p class="site">Site: ${workshop.site}</p>
+				      <p class="description">Description: ${workshop.description}</p>
 				      <p class="price">$${workshop.price}</p>
 				      <button type="button" id="signUp-workshop" value="Sign Up">Attend</button>
 

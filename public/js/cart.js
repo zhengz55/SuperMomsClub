@@ -48,7 +48,7 @@ $(document).ready(function(){
 		// $('.product-container').append(product)
 	}
 	// totalPrice = roundToXDigits(totalPrice, 2)
-	$('#total-price').text(`$${totalPrice}`)
+	$('#total-price').text(`$${totalPrice}.00`)
 	$('.plus').click(function(e) {
 		e.target.parentElement.childNodes[1].innerHTML = parseInt(e.target.parentElement.childNodes[1].innerHTML) + 1;
 		updatePrice(e)

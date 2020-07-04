@@ -30,6 +30,7 @@ $(document).ready(function() {
 			url: '/photo',
 			data: {photo: JSON.stringify(photo), id:localStorage.getItem("userID")},
 			success: function() {
+				myStorage.setItem("photo", photo)
 				$('#profile-img').attr("src", `img/${photo}`)
 			}
 		})

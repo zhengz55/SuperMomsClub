@@ -136,8 +136,12 @@ $(document).ready(function(){
 			});
 		})
 
-		if (localStorage.getItem("type") === "1") {
+		if (localStorage.getItem("type") === "1" || !localStorage.getItem("type")) {
 			$('.container-secondary').empty()
+		}
+		if (!localStorage.getItem("type")) {
+			$('.comment-box').empty();
+			
 		}
 
 		// $.ajax({
