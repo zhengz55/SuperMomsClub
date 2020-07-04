@@ -4,6 +4,7 @@
   "description": "node app ",
   "main": "server.js",
   "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
   "start": "node server.js"
 },
   "repository": {
@@ -13,8 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "body-parser": "^6.4.1",
+    "express": "^6.4.1",
+    "pg": "^6.4.1",
+    "path": "^6.4.1"
   },
   "bugs": {
   "url": ""
